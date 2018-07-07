@@ -34,7 +34,6 @@ const View = styled.div`
     width: 100%;
     height: 70px;
     background: transparent;
-    background: #ccc;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -89,6 +88,7 @@ const ContactButton = styled.button`
     border-radius: 999px;
     padding: 10px 20px;
     color: white;
+    background: transparent;
     font-size: 14px;
     font-weight: 100;
 `

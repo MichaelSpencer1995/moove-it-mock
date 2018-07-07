@@ -13,7 +13,28 @@ class Header extends Component {
     }
 }
 
-const View = styled.div``
-const Container = styled.div``
+const View = styled.div`
+    width: 100%;
+    height: calc(100vh - 200px);
+    background-image: url(/assets/hero.jpg);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+`
+const Container = styled.div`
+    width: 100%;
+    max-width: 800px;
+    padding: 0 20px;
+
+    h1 {
+        text-align: center;
+        color: #fff;
+        font-size: 36px;
+        line-height: 1.25;
+        font-weight: 300;
+    }
+`
 
 export default Header
