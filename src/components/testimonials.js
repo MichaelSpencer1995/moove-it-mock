@@ -116,13 +116,27 @@ const Quoter = styled.button`
 const Quoter1 = styled(Quoter)`
   background-image: url(/assets/testimonials/conor.jpg);
 `
-const Quoter2 = styled(Quoter)``
-const Quoter3 = styled(Quoter)``
-const Quoter4 = styled(Quoter)``
-const Quoter5 = styled(Quoter)``
-const Quoter6 = styled(Quoter)``
-const Quoter7 = styled(Quoter)``
-const Quoter8 = styled(Quoter)``
+const Quoter2 = styled(Quoter)`
+  background-image: url(/assets/testimonials/harry.jpg);
+`
+const Quoter3 = styled(Quoter)`
+  background-image: url(/assets/testimonials/michael.jpg);
+`
+const Quoter4 = styled(Quoter)`
+  background-image: url(/assets/testimonials/pete.jpg);
+`
+const Quoter5 = styled(Quoter)`
+background-image: url(/assets/testimonials/steve.jpg);
+`
+const Quoter6 = styled(Quoter)`
+background-image: url(/assets/testimonials/fernando.jpg);
+`
+const Quoter7 = styled(Quoter)`
+  background-image: url(/assets/testimonials/agustin.jpg);
+`
+const Quoter8 = styled(Quoter)`
+  background-image: url(/assets/testimonials/mlb.jpg);
+`
 
 
 export default Testimonials
