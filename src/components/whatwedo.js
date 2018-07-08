@@ -63,6 +63,7 @@ const Container = styled.div`
         padding-top: 20px;
         padding-bottom: 20px;
         margin-top: 30px;
+        text-transform: uppercase;
     }
 `
 const LineAndCircle = styled.div`

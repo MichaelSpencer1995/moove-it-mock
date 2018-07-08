@@ -67,7 +67,9 @@ class AboutUs extends Component {
     }
 }
 
-const DesktopView = styled.div``
+const DesktopView = styled.div`
+    width: 100%;
+`
 const Grid = styled.div``
 const BlockWrapper = styled.div``
 const AllProjectsContainer = styled.div``

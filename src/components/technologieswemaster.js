@@ -12,21 +12,23 @@ const TechnologiesWeMaster = () => {
                 <TwoCol>
                     <Col>
                         <h2>
-                            Web Development and Enterprise Applications
+                            Web Development and<br />
+                            Enterprise Applications
                         </h2>
 
                         <WebDevTechs>
-                            <img src="#"/ >
+                            <img src="/assets/techs.svg"/ >
                         </WebDevTechs>
                     </Col>
                     
                     <Col>
                         <h2>
-                            Web Development and Enterprise Applications
+                            Android and iOS<br />
+                            Development
                         </h2>
 
                         <WebDevTechs>
-                            <img src="#"/ >
+                            <img src="/assets/androidtechs.svg"/ >
                         </WebDevTechs>
                     </Col>
                 </TwoCol>
@@ -35,11 +37,75 @@ const TechnologiesWeMaster = () => {
     )
 }
 
-const View = styled.div``
-const Container = styled.div``
-const LineAndCircle = styled.div``
-const TwoCol = styled.div``
-const Col = styled.div``
-const WebDevTechs = styled.div``
+const View = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #3a3a3a;
+    width: 100%;
+`
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 60px;
+    h3{
+        color: #737373;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-top: 30px;
+        text-transform: uppercase;
+    }
+`
+const LineAndCircle = styled.div`
+    width: 10px;
+    position: relative;
+
+    ::after {
+        content: '';
+        position: absolute;
+        height: 20px;
+        width: 1px;
+        left: 50%;
+        translateX(-50%);
+        background: #737373;
+    }
+
+    ::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 20px;        
+        transform: translateX(-50%);
+        width: 10px;
+        height: 10px;
+        border: #737373 1px solid;
+        border-radius: 999px;
+    }
+`
+const TwoCol = styled.div`
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+`
+const Col = styled.div`
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    h2 {
+        padding-bottom: 20px;
+        color: #ff8d40;
+        line-height: 34px;
+        font-weight: 300;
+    }
+`
+const WebDevTechs = styled.div`
+    img {
+        width: 100%;
+    }
+`
 
 export default TechnologiesWeMaster
