@@ -46,10 +46,69 @@ class WhatWeDo extends Component {
     }
 }
 
-const View = styled.div``
-const Container = styled.div``
-const LineAndCircle = styled.div``
-const ThreeCol = styled.div``
-const Col = styled.div``
+const View = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #3a3a3a;
+    width: 100%;
+`
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 60px;
+    h3{
+        color: #737373;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-top: 30px;
+    }
+`
+const LineAndCircle = styled.div`
+    width: 10px;
+    position: relative;
+
+    ::after {
+        content: '';
+        position: absolute;
+        height: 20px;
+        width: 1px;
+        left: 50%;
+        translateX(-50%);
+        background: #737373;
+    }
+
+    ::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 20px;        
+        transform: translateX(-50%);
+        width: 10px;
+        height: 10px;
+        border: #737373 1px solid;
+        border-radius: 999px;
+    }
+`
+const ThreeCol = styled.div`
+    display: flex;
+    width: 90%;
+`
+const Col = styled.div`
+    width: 33.333%;
+    h2 {
+        color: #ff8d40;
+        font-size: 28px;
+        font-weight: 300;
+    }
+    p {
+        color: white;
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 30px;
+        margin-top: 20px;
+    }
+`
 
 export default WhatWeDo
