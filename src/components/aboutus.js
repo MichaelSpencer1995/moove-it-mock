@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import TechnologiesWeMaster from '../components/technologieswemaster'
 
 class AboutUs extends Component {
     render() {
@@ -12,13 +11,15 @@ class AboutUs extends Component {
             return (
                 <DesktopView>
                     <Grid>
-                        <BlockWrapper>
+                        <AllProjectsWrapper>
                             <AllProjectsContainer>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="c-squares__icon" width="11" height="11" viewBox="0 0 11 11"><path d="M8 11V8h3v3H8zm0-7h3v3H8V4zm0-4h3v3H8V0zM4 8h3v3H4V8zm0-4h3v3H4V4zm0-4h3v3H4V0zM0 8h3v3H0V8zm0-4h3v3H0V4zm0-4h3v3H0V0z" class="c-squares__fill"></path></svg>
+                                
                                 <a href="#">All projects</a>
                             </AllProjectsContainer>
-                        </BlockWrapper>
+                        </AllProjectsWrapper>
 
-                        <BlockWrapper>
+                        <OurExperienceWrapper>
                             <OurExperienceContainer>
                                 <h3>Our Experience</h3>
 
@@ -29,9 +30,9 @@ class AboutUs extends Component {
 
                                 <a href="#">Read more</a>
                             </OurExperienceContainer>
-                        </BlockWrapper>
+                        </OurExperienceWrapper>
                         
-                        <BlockWrapper>
+                        <OurTeamWrapper>
                             <OurTeamContainer>
                                 <h3>Our Team</h3>
 
@@ -43,9 +44,9 @@ class AboutUs extends Component {
 
                                 <a href="#">Read more</a>
                             </OurTeamContainer>
-                        </BlockWrapper>
+                        </OurTeamWrapper>
 
-                        <BlockWrapper>
+                        <OurProcessWrapper>
                             <OurProcessContainer>
                                 <h3>Our Process</h3>
 
@@ -57,10 +58,8 @@ class AboutUs extends Component {
 
                                 <a href="#">Read more</a>
                             </OurProcessContainer>
-                        </BlockWrapper>
+                        </OurProcessWrapper>
                     </Grid>
-                    
-                    <TechnologiesWeMaster />
                 </DesktopView>
             )
         }
@@ -68,11 +67,75 @@ class AboutUs extends Component {
 }
 
 const DesktopView = styled.div`
-    width: 100%;
+    width: 100vw;
+    height: 50vw;
+    background-image: url(/assets/aboutbg.jpg);
+    background-size: cover;
+    background-position: 0 50%;
 `
-const Grid = styled.div``
-const BlockWrapper = styled.div``
-const AllProjectsContainer = styled.div``
+const Grid = styled.div`
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 25vw);
+`
+const BlockWrapper = styled.div`
+    box-sizing: border-box;
+    padding: 50px 25px;
+    div {
+        h3 {
+            text-transform: uppercase;
+            font-weight: 700;
+            padding-bottom: 20px;
+            font-size: 16px;
+            color: #737373;
+        }
+        p {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 27px;
+            padding-bottom: 20px;
+        }
+        a {
+            color: #ff8d40;
+            font-weight: 300;
+            font-size: 18px;
+        }
+    }
+`
+const AllProjectsWrapper = styled(BlockWrapper)`
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px 0px !important;
+    grid-column: 3;
+    grid-row: 1;
+`
+const OurExperienceWrapper = styled(BlockWrapper)`
+    background: white;
+    grid-column: 4;
+    grid-row: 1;
+`
+const OurTeamWrapper = styled(BlockWrapper)`
+    background: white;
+    grid-column: 1;
+    grid-row: 2;
+    padding: 50px 30px;
+`
+const OurProcessWrapper = styled(BlockWrapper)`
+    background: white;
+    grid-column: 3;
+    grid-row: 2;
+`
+
+const AllProjectsContainer = styled.div`
+    a {
+        text-transform: uppercase;
+    }
+    svg {
+        fill: #ff8d40;
+        padding-right: 3px;
+    }
+`
 const OurExperienceContainer = styled.div``
 const OurTeamContainer = styled.div``
 const OurProcessContainer = styled.div``

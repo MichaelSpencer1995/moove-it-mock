@@ -52,9 +52,9 @@ const Logo = styled.div`
     justify-content: center;
     align-items: center;
     background: #ff8d40;
+    border-radius: 5px;
     height: 50px;
     width: 50px;
-    border-radius: 5px;
 `
 const LogoSvg = styled.svg`
     fill: white;

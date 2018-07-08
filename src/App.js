@@ -10,6 +10,7 @@ import MessageUs from './components/messageus'
 import Testimonials from './components/testimonials'
 import WhatWeDo from './components/whatwedo'
 import './App.css'
+import TechnologiesWeMaster from './components/technologieswemaster';
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
         <Testimonials />
         <WhatWeDo />
         <AboutUs />
+        <TechnologiesWeMaster />
         <ContactUs />
         <Footer />
         <MessageUs />
