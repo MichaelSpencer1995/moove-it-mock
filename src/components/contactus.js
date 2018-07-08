@@ -5,7 +5,9 @@ const ContactUs = () => {
     return (
         <View>
             <ContactUsButton>
-                <Arrow/>
+                <Arrow>
+                    <img src="/assets/arrow-right.svg" />
+                </Arrow>
 
                 <div>Contact Us and Get Started</div>
             </ContactUsButton>
@@ -13,8 +15,33 @@ const ContactUs = () => {
     )
 }
 
-const View = styled.div``
-const Arrow = styled.div``
-const ContactUsButton = styled.button``
+const View = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+`
+const Arrow = styled.div`
+    width: 4px;
+    padding-right: 24px;
+    img {
+        width: 100%;
+    }
+`
+const ContactUsButton = styled.button`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    background-color: #ff9c5a;
+    color: white;
+    font-size: 20px;
+    font-weight: 300;
+    border-radius: 999px;
+    border: none;
+`
 
 export default ContactUs
