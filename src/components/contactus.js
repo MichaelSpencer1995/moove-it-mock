@@ -36,7 +36,7 @@ const ContactUsButton = styled.button`
     padding: 15px 20px;
     margin-top: 100px;
     margin-bottom: 100px;
-    background-color: #ff9c5a;
+    background: #ff8d40;
     color: white;
     font-size: 20px;
     font-weight: 300;
