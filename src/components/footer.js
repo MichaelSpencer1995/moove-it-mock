@@ -43,7 +43,7 @@ class Footer extends Component {
                             <ThreeRow>
                                 <FirstRow>
                                     <LocationIcon>
-                                        <img src="#" />
+                                        <img src="/assets/places/austin.svg" />
                                     </LocationIcon>
 
                                     <p>	
@@ -55,7 +55,7 @@ class Footer extends Component {
 
                                 <SecondRow>
                                     <LocationIcon>
-                                        <img src="#" />
+                                        <img src="/assets/places/sanfran.svg" />
                                     </LocationIcon>
 
                                     <p>	
@@ -68,7 +68,7 @@ class Footer extends Component {
 
                                 <ThirdRow>
                                     <LocationIcon>
-                                        <img src="#" />
+                                        <img src="/assets/places/montevideo.svg" />
                                     </LocationIcon>
 
                                     <p>	
@@ -122,9 +122,6 @@ const View = styled.div`
 `
 const Container = styled.div`
     width: 90%;
-    div > * {
-        flex-basis: 42%;
-    }
 `
 const Top = styled.div`
     width: 100%;
@@ -137,11 +134,23 @@ const Bottom = styled.div`
     justify-content: space-between;
 `
 const TopLeftContainer = styled.div`
-    flex-basis: 50% !important;
+    flex-basis: 42%;
 `
-const TopRightContainer = styled.div``
-const BottomLeftContainer = styled.div``
-const BottomRightContainer = styled.div``
+const TopRightContainer = styled.div`
+    flex-basis: 42%;
+`
+const BottomLeftContainer = styled.div`
+    flex-basis: 42%;
+`
+const BottomRightContainer = styled.div`
+    flex-basis: 42%;
+    a {
+        margin-left: 81px;
+        color: white;
+        font-size: 18px;
+        font-weight: 300;
+    }
+`
 const Logo = styled.svg`
     fill: #737373;
     padding-bottom: 48px;
@@ -172,16 +181,32 @@ const ThreeCol = styled.div`
 const FirstCol = styled.div``
 const SecondCol = styled.div``
 const ThirdCol = styled.div``
-const ThreeRow = styled.div``
+const ThreeRow = styled.div`
+    div {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 15px;
+        p {
+            color: white;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 20px;
+        }
+    }
+`
 const FirstRow = styled.div``
 const SecondRow = styled.div``
 const ThirdRow = styled.div``
-const LocationIcon = styled.div``
+const LocationIcon = styled.div`
+    width: 60px;
+    padding: 10px;
+    img {
+        width: 100%;
+    }
+`
 const SocialMediaIcons = styled.div`
     display: flex;
-    div {
-        flex-basis: 0 !important;
-    }
+
     div > svg {
         padding: 12px;
         fill: #737373;
