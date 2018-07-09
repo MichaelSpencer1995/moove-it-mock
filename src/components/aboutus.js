@@ -2,18 +2,22 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 class AboutUs extends Component {
-    render() {
+    constructor() {
+        super()
+        
         this.state = {
             view: "desktop"
         }
+    }
 
+    render() {
         if(this.state.view === "desktop") {
             return (
                 <DesktopView>
                     <Grid>
                         <AllProjectsWrapper>
                             <AllProjectsContainer>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="c-squares__icon" width="11" height="11" viewBox="0 0 11 11"><path d="M8 11V8h3v3H8zm0-7h3v3H8V4zm0-4h3v3H8V0zM4 8h3v3H4V8zm0-4h3v3H4V4zm0-4h3v3H4V0zM0 8h3v3H0V8zm0-4h3v3H0V4zm0-4h3v3H0V0z" class="c-squares__fill"></path></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11"><path d="M8 11V8h3v3H8zm0-7h3v3H8V4zm0-4h3v3H8V0zM4 8h3v3H4V8zm0-4h3v3H4V4zm0-4h3v3H4V0zM0 8h3v3H0V8zm0-4h3v3H0V4zm0-4h3v3H0V0z"></path></svg>
                                 
                                 <a href="#">All projects</a>
                             </AllProjectsContainer>

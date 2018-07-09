@@ -3,8 +3,36 @@ import styled from 'styled-components'
 
 class Nav extends Component {
     render() {
+        window.addEventListener('scroll', handleScroll)
+        
+        function handleScroll() {
+            toggleNavColors();
+        }
+        
+        function toggleNavColors() {
+            const navView = document.getElementsByClassName('nav-view')[0]
+            const navLinks = document.getElementsByClassName('nav-links')
+            const navContactButton = document.getElementsByClassName('nav-contact-button')[0]
+            
+            if(window.scrollY > 0) {
+                navView.style.background = 'white'
+                navContactButton.style.borderColor = '#ff8d40'
+                navContactButton.style.color = 'rgb(58, 58, 58)'
+                for(let i = 0; i < navLinks.length; i++) {
+                    navLinks[i].style.color = 'black'
+                }
+            } else {
+                navView.style.background = 'transparent'
+                navContactButton.style.borderColor = 'white'
+                navContactButton.style.color = 'white'
+                for(let i = 0; i < navLinks.length; i++) {
+                    navLinks[i].style.color = 'white'
+                }
+            }
+        }
+
         return (
-            <View>
+            <View className="nav-view">
                 <Container>
                     <LogoContainer>
                         <Logo>
@@ -13,17 +41,17 @@ class Nav extends Component {
                     </LogoContainer>
 
                     <Links>
-                        <Link><a href="#">Home</a></Link>
-                        <Link><a href="#">About Us</a></Link>
-                        <Link><a href="#">Services</a></Link>
-                        <Link><a href="#">Our Work</a></Link>
-                        <Link><a href="#">Careers</a></Link>
-                        <Link><a href="#">Blog</a></Link>
+                        <Link><a className='nav-links' href="#">Home</a></Link>
+                        <Link><a className='nav-links' href="#">About Us</a></Link>
+                        <Link><a className='nav-links' href="#">Services</a></Link>
+                        <Link><a className='nav-links' href="#">Our Work</a></Link>
+                        <Link><a className='nav-links' href="#">Careers</a></Link>
+                        <Link><a className='nav-links' href="#">Blog</a></Link>
                     </Links>
 
                     <ContactInfo>
                         <PhoneNumber>+1 (512) 949-8991</PhoneNumber>
-                        <ContactButton>Contact</ContactButton>
+                        <ContactButton className='nav-contact-button'>Contact</ContactButton>
                     </ContactInfo>
                 </Container>
             </View>
@@ -32,6 +60,7 @@ class Nav extends Component {
 }
 
 const View = styled.div`
+    z-index: 1;
     position: fixed;
     width: 100%;
     height: 70px;
@@ -42,6 +71,7 @@ const View = styled.div`
     align-items: center;
     padding: 10px;
     box-sizing: border-box;
+    transition: 0.33333s background-color;
 `
 const Container = styled.div`
     width: 100%;
@@ -70,6 +100,7 @@ const Links = styled.ul`
     text-align: center;
     list-style: none;
     align-self: center;
+    color: black;
 `
 const Link = styled.li`
     margin-right: 20px;
