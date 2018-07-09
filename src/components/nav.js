@@ -21,7 +21,7 @@ class Nav extends Component {
                 navContactButton.style.color = 'rgb(58, 58, 58)'
                 navHomeLink.style.borderColor = '#3a3a3a'
                 for(let i = 0; i < navLinks.length; i++) {
-                    navLinks[i].style.color = 'black'
+                    navLinks[i].style.color = '#3a3a3a'
                 }
             } else {
                 navView.style.background = 'transparent'
@@ -45,7 +45,7 @@ class Nav extends Component {
 
                     <Links>
                         <Link className="nav-home-link"><a className='nav-links' href="#">Home</a></Link>
-                        <Link><a className='nav-links' href="#">About Us</a></Link>
+                        <Link><a className='nav-links' href="#">About us</a></Link>
                         <Link><a className='nav-links' href="#">Services</a></Link>
                         <Link><a className='nav-links' href="#">Our Work</a></Link>
                         <Link><a className='nav-links' href="#">Careers</a></Link>
@@ -106,13 +106,14 @@ const Links = styled.ul`
     color: black;
     position: relative;
     top: 4px;
-    left: 15px;
+    left: 14px;
 `
 const Link = styled.li`
-    margin-right: 30px;
+    margin-right: 28px;
     border-bottom: transparent 1px solid;
     border-radius: 1px;
-    padding-bottom: 8px;
+    padding: 0 1px;
+    padding-bottom: 10px;
     transition: border-bottom-color 0.2s ease;
     white-space: nowrap;
 
@@ -134,21 +135,26 @@ const ContactInfo = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    position: relative;
+    top: 2px;
+    right: 10px;
 `
 const PhoneNumber = styled.a`
     color: #ff8d40;
     font-size: 19.9999px;
     font-weight: 300;
+    position: relative;
+    bottom: 4px;
     &:hover {
         text-decoration: underline;
     }
 `
 const ContactButton = styled.button`
-    margin-left: 15px;
+    margin-left: 12px;
     margin-right: 15px;
     border: #fff 1px solid;
     border-radius: 999px;
-    padding: 10px 20px;
+    padding: 12px 20.5px;
     color: white;
     background: transparent;
     font-size: 14px;

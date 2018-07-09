@@ -18,6 +18,7 @@ const View = styled.div`
     height: calc(100vh - 200px);
     background-image: url(/assets/hero.jpg);
     background-size: cover;
+    background-position: 0px 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
