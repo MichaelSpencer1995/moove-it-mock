@@ -12,12 +12,14 @@ class Nav extends Component {
         function toggleNavColors() {
             const navView = document.getElementsByClassName('nav-view')[0]
             const navLinks = document.getElementsByClassName('nav-links')
+            const navHomeLink = document.getElementsByClassName('nav-home-link')[0]
             const navContactButton = document.getElementsByClassName('nav-contact-button')[0]
             
             if(window.scrollY > 0) {
                 navView.style.background = 'white'
                 navContactButton.style.borderColor = '#ff8d40'
                 navContactButton.style.color = 'rgb(58, 58, 58)'
+                navHomeLink.style.borderColor = '#3a3a3a'
                 for(let i = 0; i < navLinks.length; i++) {
                     navLinks[i].style.color = 'black'
                 }
@@ -25,6 +27,7 @@ class Nav extends Component {
                 navView.style.background = 'transparent'
                 navContactButton.style.borderColor = 'white'
                 navContactButton.style.color = 'white'
+                navHomeLink.style.borderColor = 'white'
                 for(let i = 0; i < navLinks.length; i++) {
                     navLinks[i].style.color = 'white'
                 }
@@ -41,7 +44,7 @@ class Nav extends Component {
                     </LogoContainer>
 
                     <Links>
-                        <Link><a className='nav-links' href="#">Home</a></Link>
+                        <Link className="nav-home-link"><a className='nav-links' href="#">Home</a></Link>
                         <Link><a className='nav-links' href="#">About Us</a></Link>
                         <Link><a className='nav-links' href="#">Services</a></Link>
                         <Link><a className='nav-links' href="#">Our Work</a></Link>
@@ -83,7 +86,7 @@ const Container = styled.div`
     }
 `
 const LogoContainer = styled.div``
-const Logo = styled.div`
+const Logo = styled.a`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -101,15 +104,30 @@ const Links = styled.ul`
     list-style: none;
     align-self: center;
     color: black;
+    position: relative;
+    top: 4px;
+    left: 15px;
 `
 const Link = styled.li`
-    margin-right: 20px;
-    
+    margin-right: 30px;
+    border-bottom: transparent 1px solid;
+    border-radius: 1px;
+    padding-bottom: 8px;
+    transition: border-bottom-color 0.2s ease;
+    white-space: nowrap;
+
     a {
         font-size: 14px;
         font-weight: 300;
         text-decoration: none;
         color: white;
+    }
+    &:first-child {
+        border-color: white;
+    }
+    &:hover {
+        cursor: pointer;
+        border-bottom-color: #b9b9b9;
     }
 `
 const ContactInfo = styled.div`
@@ -119,8 +137,11 @@ const ContactInfo = styled.div`
 `
 const PhoneNumber = styled.a`
     color: #ff8d40;
-    font-size: 20px;
+    font-size: 19.9999px;
     font-weight: 300;
+    &:hover {
+        text-decoration: underline;
+    }
 `
 const ContactButton = styled.button`
     margin-left: 15px;
@@ -132,6 +153,11 @@ const ContactButton = styled.button`
     background: transparent;
     font-size: 14px;
     font-weight: 300;
+    transition: border-bottom-color 0.2s ease;
+    &:hover {
+        border-color: #ff8d40 !important;
+        color: white !important;
+    }
 `
 
 export default Nav
