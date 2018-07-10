@@ -34,7 +34,9 @@ class Brands extends Component {
                   </BrandsContainer>
 
                   <LetsWorkTogether>
-                    Let's work together
+                    <RightArrow src="/assets/arrow-right.svg" />
+
+                    <span>Let's work together</span>
                   </LetsWorkTogether>
                 </Container>
             </View>
@@ -44,8 +46,8 @@ class Brands extends Component {
 
 const LineAndCircle = styled.div`
     width: 10px;
-    background: red;
     position: relative;
+    right: 1px;
 
     ::after {
         content: '';
@@ -61,10 +63,10 @@ const LineAndCircle = styled.div`
         content: '';
         position: absolute;
         left: 50%;
-        top: 20px;        
+        top: 20px;
         transform: translateX(-50%);
-        width: 10px;
-        height: 10px;
+        width: 8px;
+        height: 8px;
         border: #737373 1px solid;
         border-radius: 999px;
     }
@@ -81,15 +83,13 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     max-width: 1200px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 60px;
+    padding-bottom: 48px;
 
     a {
         text-decoration: none;
         margin-top: 20px;
-        padding-top: 20px;
-        padding-bottom: 20px;
+        padding-top: 18px;
+        padding-bottom: 0px;
         text-transform: uppercase;
         color: #737373;
         font-weight: bold;
@@ -100,24 +100,42 @@ const BrandsContainer = styled.div`
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
     > * {
         flex-basis: 20%;
     }
 `
 const Brand = styled.div`
-    // width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
     img{
-        width: 100%;
+        width: 80%;
     }
 `
 const LetsWorkTogether = styled.button`
     border-radius: 999px;
     background: #ff8d40;
     color: #fff;
-    padding: 6px 20px;
+    padding: 7px 22px;
     border: none;
     font-weight: 300;
     font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 36px;
+`
+
+const RightArrow = styled.img`
+    width: 4px;
+    margin-right: 22px;
+    position: relative;
+    top: 1px;
 `
 
 export default Brands
