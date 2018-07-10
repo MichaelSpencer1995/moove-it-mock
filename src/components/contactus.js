@@ -9,7 +9,7 @@ const ContactUs = () => {
                     <img src="/assets/arrow-right.svg" />
                 </Arrow>
 
-                <div>Contact Us and Get Started</div>
+                <span>Contact Us and Get Started</span>
             </ContactUsButton>
         </View>
     )
@@ -35,7 +35,8 @@ const ContactUsButton = styled.button`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 17px 21px;
+    padding: 17px 22px;
+    width: 310px;
     margin-top: 94px;
     margin-bottom: 94px;
     background: #ff8d40;
@@ -44,6 +45,13 @@ const ContactUsButton = styled.button`
     font-weight: 300;
     border-radius: 999px;
     border: none;
+    transition: 0.33333s;
+    &:hover {
+        justify-content: center;
+        span {
+            display: none;
+        }
+    }
 `
 
 export default ContactUs
