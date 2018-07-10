@@ -62,7 +62,7 @@ const Container = styled.div`
     h3{
         color: #737373;
         padding-top: 14px;
-        padding-bottom: 30px;
+        padding-bottom: 38px;
         margin-top: 30px;
         font-size: 16px;
         text-transform: uppercase;
@@ -97,7 +97,8 @@ const LineAndCircle = styled.div`
 `
 const ThreeCol = styled.div`
     display: flex;
-    width: 95%;
+    width: 99%;
+    max-width: 1200px;
 `
 const Col = styled.div`
     width: 33.333%;
