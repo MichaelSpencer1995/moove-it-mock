@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { ORANGE } from '../constants'
+import { ORANGE, TABLET, MOBILE } from '../constants'
 
 class WhatWeDo extends Component {
     render() {
@@ -99,6 +99,12 @@ const ThreeCol = styled.div`
     display: flex;
     width: 99%;
     max-width: 1200px;
+    @media(max-width: ${ TABLET }) {
+        width: 96%;
+    }
+    @media(max-width: ${ MOBILE }) {
+        flex-direction: column;
+    }
 `
 const Col = styled.div`
     width: 33.333%;
@@ -117,6 +123,13 @@ const Col = styled.div`
         line-height: 30px;
         margin-top: 20px;
         width: 95%;
+    }
+    @media(max-width: ${ TABLET }) {
+        padding: 0 5px;
+    }
+    @media(max-width: ${ MOBILE }) {
+        width: 100%;
+        margin-bottom: 20px;
     }
 `
 
