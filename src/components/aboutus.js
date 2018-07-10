@@ -4,7 +4,6 @@ import styled from 'styled-components'
 class AboutUs extends Component {
     constructor() {
         super()
-        
         this.state = {
             view: "desktop"
         }
@@ -103,6 +102,9 @@ const BlockWrapper = styled.div`
             color: #ff8d40;
             font-weight: 300;
             font-size: 18px;
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 `
@@ -134,6 +136,10 @@ const OurProcessWrapper = styled(BlockWrapper)`
 const AllProjectsContainer = styled.div`
     a {
         text-transform: uppercase;
+        font-weight: 300 !important;
+        &:hover {
+            text-decoration: none !important;
+        }
     }
     svg {
         fill: #ff8d40;
