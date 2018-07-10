@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { ORANGE } from '../constants'
+import { ORANGE, TABLET } from '../constants'
 
 class AboutUs extends Component {
     constructor() {
@@ -76,15 +76,26 @@ const DesktopView = styled.div`
     background-image: url(/assets/aboutbg.jpg);
     background-size: cover;
     background-position: 0 50%;
+    @media(max-width: ${ TABLET }) {
+        height: 66.666666vw;
+    }
 `
 const Grid = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 25vw);
+    @media(max-width: ${ TABLET }) {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 33.3333333vw);
+    }
 `
 const BlockWrapper = styled.div`
     box-sizing: border-box;
-    padding: 50px 25px;
+    padding: 0px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     div {
         h3 {
             text-transform: uppercase;
@@ -113,25 +124,42 @@ const AllProjectsWrapper = styled(BlockWrapper)`
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    align-items: flex-start;
     padding: 20px 0px !important;
     grid-column: 3;
     grid-row: 1;
+    @media(max-width: ${ TABLET }) {
+        grid-column: 2;
+        grid-row: 1;
+    }
 `
 const OurExperienceWrapper = styled(BlockWrapper)`
     background: white;
     grid-column: 4;
     grid-row: 1;
+    @media(max-width: ${ TABLET }) {
+        grid-column: 3;
+        grid-row: 1;
+    }
 `
 const OurTeamWrapper = styled(BlockWrapper)`
     background: white;
     grid-column: 1;
     grid-row: 2;
     padding: 50px 30px;
+    @media(max-width: ${ TABLET }) {
+        grid-column: 1;
+        grid-row: 2;
+    }
 `
 const OurProcessWrapper = styled(BlockWrapper)`
     background: white;
     grid-column: 3;
     grid-row: 2;
+    @media(max-width: ${ TABLET }) {
+        grid-column: 2;
+        grid-row: 2;
+    }
 `
 
 const AllProjectsContainer = styled.div`
