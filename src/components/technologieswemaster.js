@@ -56,11 +56,13 @@ const Container = styled.div`
         padding-bottom: 20px;
         margin-top: 30px;
         text-transform: uppercase;
+        font-size: 16px;
     }
 `
 const LineAndCircle = styled.div`
     width: 10px;
     position: relative;
+    right: 1px;
 
     ::after {
         content: '';
@@ -78,8 +80,8 @@ const LineAndCircle = styled.div`
         left: 50%;
         top: 20px;        
         transform: translateX(-50%);
-        width: 10px;
-        height: 10px;
+        width: 8px;
+        height: 8px;
         border: #737373 1px solid;
         border-radius: 999px;
     }
