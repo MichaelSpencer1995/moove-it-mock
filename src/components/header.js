@@ -6,7 +6,7 @@ class Header extends Component {
         return (
             <View>
                 <Container>
-                  <h1>We are your software partner<br /> for creating high-value, innovative products.</h1>
+                  <h1>We are your software partner <br /> for creating high-value, innovative products.</h1>
                 </Container>
             </View>
         )
@@ -33,7 +33,8 @@ const Container = styled.div`
         text-align: center;
         color: #fff;
         font-size: 56px;
-        line-height: 1.25;
+        line-height: 1.23;
+        line-height: 1.17541;
         font-weight: 300;
     }
 `
