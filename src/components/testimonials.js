@@ -2,6 +2,22 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Quoter from './quoter'
 // const windowWidth = window.innerWidth
+const quote0 = "Moove-it has been instrumental in our ability to rapidly adapt and effectively respond to our market's demand. A strong cultural match, their savviness and consultative approach are key for our business to continue to choose Moove-it after 4+ years."
+const quote1 = "I can vouch for the @moove_it team being a wonderful bunch, and working for them would be a wise move."
+const quote2 = "Their offices are cool and home-like, and the culture is positive and fresh. Everyone seems talented and caring, and their technical chops are competitive with anyone else you can find."
+const quote3 = "The talented and passionate people at Moove-it are an integral part of the YouScience team. Together we set high standards and deliver great software."
+const quote4 = "Moove-it has been an ideal partner with our business. Their ability to work within our budget, adjust to our ever-changing product development priorities, and provide innovative and thoughtful solutions has been a large part of our success."
+const quote5 = "Working with Moove-it is a two-way enrichment relationship, sharing a common goal: make the technology invisible to the user and provide a better service."
+const quote6 = "Moove-it has been a valuable resource to our engineering needs. Thank you!"
+const quote7 = "Moove-it helped us increase our team's velocity and capacity.  Moove-it engineers were able to catch up with our project's complex architecture and successfully integrate with our full-time staff."
+const quoteData0 = ['Conor Brady', 'VP of Software Development, Geoforce']
+const quoteData1 = ['Harry Roberts', 'CSS Wizard']
+const quoteData2 = ['Michael Staton', 'Partner, Learn Capital']
+const quoteData3 = ['Pete Sharum', 'Head of Engineering, YouScience']
+const quoteData4 = ['Steve Roberson', 'Managing Partner, MapRight']
+const quoteData5 = ['Fernando Etchevarren', 'CTO, Bancard']
+const quoteData6 = ['Agustin Vilaseca', 'CTO, edSurge']
+const quoteData7 = ['Matt Gelbman', 'SVP, Software Engineering MLB.com']
 
 class Testimonials extends Component {
   constructor() {
@@ -9,8 +25,8 @@ class Testimonials extends Component {
     this.state = {
       quoterIndex: 0,
       active: ["-active", "", "", "", "", "", "", ""],
-      currentQuote: "Moove-it has been instrumental in our ability to rapidly adapt and effectively respond to our market's demand. A strong cultural match, their savviness and consultative approach are key for our business to continue to choose Moove-it after 4+ years.",
-      currentQuoter: ['Conor Brady', 'VP of Software Development, Geoforce']
+      currentQuote: [quote0, quote1, quote2, quote3, quote4, quote5, quote6, quote7],
+      currentQuoter: [quoteData0, quoteData1, quoteData2, quoteData3, quoteData4, quoteData5, quoteData6, quoteData7]
     }
   }
 
@@ -22,15 +38,15 @@ class Testimonials extends Component {
 
           <QuoteContainer>
             <CurrentQuote>
-              {this.state.currentQuote}
+              {this.state.currentQuote[this.state.quoterIndex]}
             </CurrentQuote>
             
             <CurrentQuoter>
-              {this.state.currentQuoter[0]}
+              {this.state.currentQuoter[this.state.quoterIndex][0]}
             </CurrentQuoter>
 
             <CurrentQuoterPoistion>
-              {this.state.currentQuoter[1]}
+              {this.state.currentQuoter[this.state.quoterIndex][1]}
             </CurrentQuoterPoistion>
           </QuoteContainer>
 
@@ -84,7 +100,10 @@ class Testimonials extends Component {
     let newState = ["", "", "", "", "", "", "", ""]
     newState[quoterToActivate] = "-active"
 
-    this.setState({ active: newState })
+    this.setState({ 
+      active: newState,
+      quoterIndex: quoterToActivate
+    })
   }
 }
 
@@ -120,6 +139,7 @@ const CurrentQuote = styled.div`
   padding-top: 50px;
   font-size: 18px;
   line-height: 24px;
+  height: 100px;
   font-weight: 300;
   color: rgb(115, 115, 115);
   text-align: center;
