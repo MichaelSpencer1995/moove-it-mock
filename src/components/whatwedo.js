@@ -57,18 +57,20 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 60px;
+    padding-bottom: 80px;
     h3{
         color: #737373;
-        padding-top: 30px;
+        padding-top: 14px;
         padding-bottom: 30px;
         margin-top: 30px;
+        font-size: 16px;
         text-transform: uppercase;
     }
 `
 const LineAndCircle = styled.div`
     width: 10px;
     position: relative;
+    right: 1px;
 
     ::after {
         content: '';
@@ -86,8 +88,8 @@ const LineAndCircle = styled.div`
         left: 50%;
         top: 20px;        
         transform: translateX(-50%);
-        width: 10px;
-        height: 10px;
+        width: 8px;
+        height: 8px;
         border: #737373 1px solid;
         border-radius: 999px;
     }
@@ -99,10 +101,12 @@ const ThreeCol = styled.div`
 const Col = styled.div`
     width: 33.333%;
     padding: 0 15px;
+
     h2 {
         color: #ff8d40;
         font-size: 28px;
         font-weight: 300;
+        width: 95%;
     }
     p {
         color: white;
@@ -110,6 +114,7 @@ const Col = styled.div`
         font-weight: 300;
         line-height: 30px;
         margin-top: 20px;
+        width: 95%;
     }
 `
 
