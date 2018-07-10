@@ -54,9 +54,9 @@ class Footer extends Component {
                                 </FirstRow>
 
                                 <SecondRow>
-                                    <LocationIcon>
+                                    <LocationIcon2>
                                         <img src="/assets/places/sanfran.svg" />
-                                    </LocationIcon>
+                                    </LocationIcon2>
 
                                     <p>	
                                         San Francisco<br />
@@ -116,17 +116,18 @@ const View = styled.div`
     width: 100%;
     background: linear-gradient(to right, #1d1d1d 50%, #ff8d40 50%);
     display: flex;
-    padding: 80px 0px;
+    padding: 60px 0px;
     flex-direction: column;
     align-items: center;
 `
 const Container = styled.div`
-    width: 90%;
+    width: 85%;
 `
 const Top = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
+    padding-bottom: 20px;
 `
 const Bottom = styled.div`
     width: 100%;
@@ -145,13 +146,15 @@ const BottomLeftContainer = styled.div`
 const BottomRightContainer = styled.div`
     flex-basis: 42%;
     a {
-        margin-left: 81px;
+        margin-left: 72px;
         color: white;
         font-size: 18px;
         font-weight: 300;
     }
 `
 const Logo = styled.svg`
+    transform: scale(0.66);
+    transform-origin: 0 100%;
     fill: #737373;
     padding-bottom: 48px;
 `
@@ -195,18 +198,25 @@ const ThreeRow = styled.div`
     }
 `
 const FirstRow = styled.div``
-const SecondRow = styled.div``
+const SecondRow = styled.div`
+    margin-bottom: 20px !important;
+`
 const ThirdRow = styled.div``
 const LocationIcon = styled.div`
-    width: 60px;
-    padding: 10px;
+    width: 50px;
+    padding-right: 20px;
     img {
         width: 100%;
     }
 `
+const LocationIcon2 = styled(LocationIcon)`
+    padding-top: 10px;
+`
+
 const SocialMediaIcons = styled.div`
     display: flex;
-
+    padding-bottom: 20px;
+    
     div > svg {
         padding: 12px;
         fill: #737373;
