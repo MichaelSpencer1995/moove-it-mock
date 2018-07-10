@@ -153,6 +153,7 @@ const ContactInfo = styled.div`
     right: 9px;
     @media(max-width: ${ TABLET }) {
         right: 5px;
+        flex-basis: auto;
     }
 `
 const PhoneNumber = styled.a`
