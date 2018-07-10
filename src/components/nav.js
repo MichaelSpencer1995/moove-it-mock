@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { ORANGE } from '../constants'
 
 class Nav extends Component {
     render() {
@@ -17,7 +18,7 @@ class Nav extends Component {
             
             if(window.scrollY > 0) {
                 navView.style.background = 'white'
-                navContactButton.style.borderColor = '#ff8d40'
+                navContactButton.style.borderColor = ORANGE
                 navContactButton.style.color = 'rgb(58, 58, 58)'
                 navHomeLink.style.borderColor = '#3a3a3a'
                 for(let i = 0; i < navLinks.length; i++) {
@@ -90,7 +91,7 @@ const Logo = styled.a`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #ff8d40;
+    background: ${ ORANGE };
     border-radius: 5px;
     height: 50px;
     width: 50px;
@@ -140,7 +141,7 @@ const ContactInfo = styled.div`
     right: 10px;
 `
 const PhoneNumber = styled.a`
-    color: #ff8d40;
+    color: ${ ORANGE };
     font-size: 19.9999px;
     font-weight: 300;
     position: relative;
@@ -161,7 +162,7 @@ const ContactButton = styled.button`
     font-weight: 300;
     transition: border-bottom-color 0.2s ease;
     &:hover {
-        border-color: #ff8d40 !important;
+        border-color: ${ ORANGE } !important;
         color: white !important;
     }
 `

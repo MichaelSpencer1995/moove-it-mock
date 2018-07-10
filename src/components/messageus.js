@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { ORANGE } from '../constants'
 
 class MessageUs extends Component {
     render() {
@@ -17,7 +18,7 @@ const View = styled.a`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: #ff8d40;
+    background: ${ ORANGE };
     height: 60px;
     width: 60px;
     border-radius: 999px;

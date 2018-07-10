@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { ORANGE } from '../constants'
 
 const ContactUs = () => {
     return (
@@ -39,7 +40,7 @@ const ContactUsButton = styled.button`
     width: 310px;
     margin-top: 94px;
     margin-bottom: 94px;
-    background: #ff8d40;
+    background: ${ ORANGE };
     color: white;
     font-size: 20px;
     font-weight: 300;

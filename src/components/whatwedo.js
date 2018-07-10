@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { ORANGE } from '../constants'
 
 class WhatWeDo extends Component {
     render() {
@@ -103,7 +104,7 @@ const Col = styled.div`
     padding: 0 15px;
 
     h2 {
-        color: #ff8d40;
+        color: ${ ORANGE };
         font-size: 28px;
         font-weight: 300;
         width: 95%;

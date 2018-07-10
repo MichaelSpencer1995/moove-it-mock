@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { ORANGE } from '../constants'
 
 class Brands extends Component {
     render() {
@@ -126,7 +127,7 @@ const Brand = styled.div`
 `
 const LetsWorkTogether = styled.button`
     border-radius: 999px;
-    background: #ff8d40;
+    background: ${ ORANGE };
     color: #fff;
     padding: 7px 22px;
     border: none;

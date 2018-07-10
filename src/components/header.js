@@ -39,6 +39,7 @@ const Container = styled.div`
         line-height: 1.23;
         line-height: 1.17541;
         font-weight: 300;
+        padding: 0 21px;
     }
 `
 

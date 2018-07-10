@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { ORANGE } from '../constants'
 
 class Footer extends Component {
     render() {
@@ -116,7 +117,7 @@ class Footer extends Component {
 
 const View = styled.div`
     width: 100%;
-    background: linear-gradient(to right, #1d1d1d 50%, #ff8d40 50%);
+    background: linear-gradient(to right, #1d1d1d 50%, ${ ORANGE } 50%);
     display: flex;
     padding: 60px 0px;
     padding-bottom: 54px;

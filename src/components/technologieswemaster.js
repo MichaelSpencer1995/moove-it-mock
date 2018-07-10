@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { ORANGE } from '../constants'
 
 const TechnologiesWeMaster = () => {
     return (
@@ -99,7 +100,7 @@ const Col = styled.div`
     text-align: center;
     h2 {
         padding-bottom: 20px;
-        color: #ff8d40;
+        color: ${ ORANGE };
         line-height: 34px;
         font-weight: 300;
     }

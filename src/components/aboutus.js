@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { ORANGE } from '../constants'
 
 class AboutUs extends Component {
     constructor() {
@@ -99,7 +100,7 @@ const BlockWrapper = styled.div`
             padding-bottom: 20px;
         }
         a {
-            color: #ff8d40;
+            color: ${ ORANGE };
             font-weight: 300;
             font-size: 18px;
             &:hover {
@@ -142,7 +143,7 @@ const AllProjectsContainer = styled.div`
         }
     }
     svg {
-        fill: #ff8d40;
+        fill: ${ ORANGE };
         padding-right: 3px;
     }
 `
