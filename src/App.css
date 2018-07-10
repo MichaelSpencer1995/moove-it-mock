@@ -18,3 +18,54 @@ a {
 button,a:hover {
   cursor: pointer;
 }
+
+button:focus {
+  outline:0;
+}
+
+.testimonial-button {
+  width: 47px;
+  height: 47px;
+  overflow: hidden;
+  border-radius: 999px;
+  border: none;
+}
+
+
+.testimonial-overlay {
+  border-radius: 999px;
+  width: 47px;
+  height: 47px;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+  transition: box-shadow 0.5s ease, opacity 0.5s ease;
+}
+
+.testimonial-overlay-active {
+  border-radius: 999px;
+  width: 47px;
+  height: 47px;
+  position: absolute;
+  background: rgba(255, 255, 255, 0);
+  transition: box-shadow 0.5s ease, opacity 0.5s ease;
+}
+
+.testimonial-image-wrapper {
+  width: 100%;
+}
+.lg-testi-img {
+  width: 110%;
+}
+.testimonial-image-wrapper > img {
+  width: 100%;
+}
+
+.testimonial-button-active {
+  width: 47px;
+  border: none;
+  height: 47px;
+  overflow: hidden;
+  border-radius: 999px;
+  box-shadow: 0 0 0 3px #ff8d40;
+  transition: box-shadow 0.5s ease, opacity 0.5s ease;
+}

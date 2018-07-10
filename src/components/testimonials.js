@@ -1,18 +1,20 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-const windowWidth = window.innerWidth
+import Quoter from './quoter'
+// const windowWidth = window.innerWidth
 
 class Testimonials extends Component {
-  componentWillMount() {
-    console.log(windowWidth)
-  }
-
-  render() {
+  constructor() {
+    super()  
     this.state = {
+      quoterIndex: 0,
+      active: ["-active", "", "", "", "", "", "", ""],
       currentQuote: "Moove-it has been instrumental in our ability to rapidly adapt and effectively respond to our market's demand. A strong cultural match, their savviness and consultative approach are key for our business to continue to choose Moove-it after 4+ years.",
       currentQuoter: ['Conor Brady', 'VP of Software Development, Geoforce']
     }
+  }
 
+  render() {
     return (
       <View>
         <Container>
@@ -33,18 +35,56 @@ class Testimonials extends Component {
           </QuoteContainer>
 
           <Quoters>
-            <Quoter1 />
-            <Quoter2 />
-            <Quoter3 />
-            <Quoter4 />
-            <Quoter5 />
-            <Quoter6 />
-            <Quoter7 />
-            <Quoter8 />
+            <Quoter
+              src="/assets/testimonials/conor.jpg" 
+              isActive={this.state.active[0]}
+              updateQuoterStatus={() => this.setNewQuoter(0)}
+              classes={{ img: "testimonial-image-wrapper", button: this.state.active[0] }} />
+            <Quoter
+              src="/assets/testimonials/harry.jpg"
+              isActive={this.state.active[1]}
+              updateQuoterStatus={() => this.setNewQuoter(1)}
+              classes={{ img: "testimonial-image-wrapper", button: this.state.active[1] }} />
+            <Quoter
+              src="/assets/testimonials/michael.jpg" 
+              isActive={this.state.active[2]}
+              updateQuoterStatus={() => this.setNewQuoter(2)}
+              classes={{ img: "testimonial-image-wrapper", button: this.state.active[2] }} />
+            <Quoter
+              src="/assets/testimonials/pete.jpg"
+              isActive={this.state.active[3]}
+              updateQuoterStatus={() => this.setNewQuoter(3)}
+              classes={{ img: "testimonial-image-wrapper lg-testi-img", button: this.state.active[3] }} />
+            <Quoter
+              src="/assets/testimonials/steve.jpg"  
+              isActive={this.state.active[4]}
+              updateQuoterStatus={() => this.setNewQuoter(4)}
+              classes={{ img: "testimonial-image-wrapper", button: this.state.active[4] }} />
+            <Quoter
+              src="/assets/testimonials/fernando.jpg"
+              isActive={this.state.active[5]}
+              updateQuoterStatus={() => this.setNewQuoter(5)}
+              classes={{ img: "testimonial-image-wrapper", button: this.state.active[5] }}  />
+            <Quoter
+              src="/assets/testimonials/agustin.jpg"
+              isActive={this.state.active[6]}
+              updateQuoterStatus={() => this.setNewQuoter(6)}
+              classes={{ img: "testimonial-image-wrapper", button: this.state.active[6] }}  />
+            <Quoter
+              src="/assets/testimonials/mlb.jpg" 
+              isActive={this.state.active[7]}
+              updateQuoterStatus={() => this.setNewQuoter(7)}
+              classes={{ img: "testimonial-image-wrapper", button: this.state.active[7] }} />
           </Quoters>
         </Container>
       </View>
     )
+  }
+  setNewQuoter(quoterToActivate) {
+    let newState = ["", "", "", "", "", "", "", ""]
+    newState[quoterToActivate] = "-active"
+
+    this.setState({ active: newState })
   }
 }
 
@@ -100,43 +140,10 @@ const CurrentQuoterPoistion= styled.h6`
 `
 
 const Quoters = styled.div`
-  width: 60%;
+  width: 100%;
+  max-width: 500px;
   display: flex;
   margin-top: 20px;
   justify-content: space-between;
 `
-const Quoter = styled.button`
-  width: calc(${windowWidth * 0.6 * .1}px);
-  height: calc(${windowWidth * 0.6 * .1}px);
-  overflow:hidden;
-  border-radius: 999px;
-  background-size: cover;
-  border: none;
-`
-const Quoter1 = styled(Quoter)`
-  background-image: url(/assets/testimonials/conor.jpg);
-`
-const Quoter2 = styled(Quoter)`
-  background-image: url(/assets/testimonials/harry.jpg);
-`
-const Quoter3 = styled(Quoter)`
-  background-image: url(/assets/testimonials/michael.jpg);
-`
-const Quoter4 = styled(Quoter)`
-  background-image: url(/assets/testimonials/pete.jpg);
-`
-const Quoter5 = styled(Quoter)`
-background-image: url(/assets/testimonials/steve.jpg);
-`
-const Quoter6 = styled(Quoter)`
-background-image: url(/assets/testimonials/fernando.jpg);
-`
-const Quoter7 = styled(Quoter)`
-  background-image: url(/assets/testimonials/agustin.jpg);
-`
-const Quoter8 = styled(Quoter)`
-  background-image: url(/assets/testimonials/mlb.jpg);
-`
-
-
 export default Testimonials
