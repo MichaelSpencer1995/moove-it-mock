@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { ORANGE } from '../constants'
+import { ORANGE, TABLET } from '../constants'
 
 class Nav extends Component {
     render() {
@@ -82,11 +82,16 @@ const Container = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     > * {
         flex-basis: 33.33333%;
     }
 `
-const LogoContainer = styled.div``
+const LogoContainer = styled.div`
+    @media(max-width: ${ TABLET }) {
+        flex-basis: auto;
+    }
+`
 const Logo = styled.a`
     display: flex;
     justify-content: center;
@@ -95,6 +100,7 @@ const Logo = styled.a`
     border-radius: 5px;
     height: 50px;
     width: 50px;
+    margin-right: 5px;
 `
 const LogoSvg = styled.svg`
     fill: white;
@@ -107,17 +113,18 @@ const Links = styled.ul`
     color: black;
     position: relative;
     top: 4px;
-    left: 14px;
+    @media(max-width: ${ TABLET }) {
+        flex-grow: 1;
+    }
 `
 const Link = styled.li`
-    margin-right: 28px;
+    margin: 0 14px;
     border-bottom: transparent 1px solid;
     border-radius: 1px;
     padding: 0 1px;
     padding-bottom: 10px;
     transition: border-bottom-color 0.2s ease;
     white-space: nowrap;
-
     a {
         font-size: 14px;
         font-weight: 300;
@@ -131,6 +138,11 @@ const Link = styled.li`
         cursor: pointer;
         border-bottom-color: #b9b9b9;
     }
+    @media(max-width: ${ TABLET }) {
+        margin: 0 10px;
+        padding: 0;
+        padding-bottom: 10px;
+    }
 `
 const ContactInfo = styled.div`
     display: flex;
@@ -138,7 +150,10 @@ const ContactInfo = styled.div`
     justify-content: flex-end;
     position: relative;
     top: 2px;
-    right: 10px;
+    right: 9px;
+    @media(max-width: ${ TABLET }) {
+        right: 5px;
+    }
 `
 const PhoneNumber = styled.a`
     color: ${ ORANGE };
@@ -151,11 +166,11 @@ const PhoneNumber = styled.a`
     }
 `
 const ContactButton = styled.button`
-    margin-left: 12px;
+    margin-left: 13px;
     margin-right: 15px;
     border: #fff 1px solid;
     border-radius: 999px;
-    padding: 12px 20.5px;
+    padding: 12px 20px;
     color: white;
     background: transparent;
     font-size: 14px;
@@ -164,6 +179,9 @@ const ContactButton = styled.button`
     &:hover {
         border-color: ${ ORANGE } !important;
         color: white !important;
+    }
+    @media(max-width: ${ TABLET }) {
+        margin-left: 18px;
     }
 `
 
