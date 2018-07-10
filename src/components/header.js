@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { TABLET } from '../constants'
 
 class Header extends Component {
     render() {
@@ -26,6 +27,9 @@ const View = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    @media(max-width: ${ TABLET }) {
+        height: calc(100vh - 50px);
+    }
 `
 const Container = styled.div`
     width: 100%;
@@ -40,6 +44,14 @@ const Container = styled.div`
         line-height: 1.17541;
         font-weight: 300;
         padding: 0 21px;
+    }
+    @media(max-width: ${ TABLET }) {
+        width: 70%;
+        h1 {
+            font-size: 45px;
+            position: relative;
+            bottom: 10px;
+        }
     }
 `
 
