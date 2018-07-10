@@ -25,6 +25,8 @@ const View = styled.div`
 const Arrow = styled.div`
     width: 4px;
     padding-right: 24px;
+    position: relative;
+    bottom: 1px;
     img {
         width: 100%;
     }
@@ -33,9 +35,9 @@ const ContactUsButton = styled.button`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    padding: 17px 21px;
+    margin-top: 94px;
+    margin-bottom: 94px;
     background: #ff8d40;
     color: white;
     font-size: 20px;
