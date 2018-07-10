@@ -46,9 +46,12 @@ const Container = styled.div`
         padding: 0 21px;
     }
     @media(max-width: ${ TABLET }) {
-        width: 70%;
+        max-width: 700px;
+        width: 100%;
+        padding: 0;
         h1 {
             font-size: 45px;
+            padding: 0;
             position: relative;
             bottom: 10px;
         }
