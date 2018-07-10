@@ -6,7 +6,10 @@ class Header extends Component {
         return (
             <View>
                 <Container>
-                  <h1>We are your software partner <br /> for creating high-value, innovative products.</h1>
+                    <h1>
+                        We are your software partner <br />
+                        for creating high-value, innovative products.
+                    </h1>
                 </Container>
             </View>
         )

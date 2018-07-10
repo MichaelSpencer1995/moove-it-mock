@@ -23,8 +23,8 @@ const View = styled.div`
     border-radius: 999px;
     bottom: 0;
     right: 0;
-    margin-right: 27px;
-    margin-bottom: 23px;
+    margin-right: 20px;
+    margin-bottom: 20px;
     svg {
         width: 28px;
         height: 32px;

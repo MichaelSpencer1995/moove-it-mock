@@ -6,7 +6,7 @@ class Nav extends Component {
         window.addEventListener('scroll', handleScroll)
         
         function handleScroll() {
-            toggleNavColors();
+            toggleNavColors()
         }
         
         function toggleNavColors() {
