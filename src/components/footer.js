@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { ORANGE } from '../constants'
+import { ORANGE, TABLET } from '../constants'
 
 class Footer extends Component {
     render() {
@@ -126,6 +126,9 @@ const View = styled.div`
 `
 const Container = styled.div`
     width: 86%;
+    @media(max-width: ${ TABLET }) {
+        width: 94%;
+    }
 `
 const Top = styled.div`
     width: 100%;
@@ -140,6 +143,9 @@ const Bottom = styled.div`
 `
 const TopLeftContainer = styled.div`
     flex-basis: 41%;
+    @media(max-width: ${ TABLET }) {
+        flex-basis: 44%;
+    }
 `
 const TopRightContainer = styled.div`
     flex-basis: 42%;
