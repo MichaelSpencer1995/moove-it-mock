@@ -151,7 +151,7 @@ const Bottom = styled.div`
     display: flex;
     justify-content: space-between;
     @media(max-width: ${ MOBILE }) {
-        width: 75%;
+        width: 80%;
     }
 `
 const TopLeftContainer = styled.div`
@@ -170,7 +170,7 @@ const TopRightContainer = styled.div`
 const BottomLeftContainer = styled.div`
     flex-basis: 42%;
     @media(max-width: ${ MOBILE }) {
-        flex-basis: auto;
+        flex-basis: 50%;
     }
 `
 const BottomRightContainer = styled.div`
@@ -180,12 +180,20 @@ const BottomRightContainer = styled.div`
         color: white;
         font-size: 18px;
         font-weight: 300;
+        white-space: nowrap;
         &:hover {
             text-decoration: underline;
         }
     }
     @media(max-width: ${ MOBILE }) {
-        flex-basis: auto;
+        flex-basis: 50%;
+        display: flex;
+        justify-content: flex-end;
+        a {
+            margin: 0;
+            position: relative;
+            top: 10px;
+        }
     }
 `
 const Logo = styled.svg`
