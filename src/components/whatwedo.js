@@ -104,6 +104,7 @@ const ThreeCol = styled.div`
     }
     @media(max-width: ${ MOBILE }) {
         flex-direction: column;
+        width: 90%;
     }
 `
 const Col = styled.div`

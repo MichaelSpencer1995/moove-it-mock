@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { ORANGE } from '../constants'
+import { ORANGE, TABLET, MOBILE } from '../constants'
 
 const TechnologiesWeMaster = () => {
     return (
@@ -22,7 +22,7 @@ const TechnologiesWeMaster = () => {
                         </WebDevTechs>
                     </Col>
                     
-                    <Col>
+                    <Col2>
                         <h2>
                             Android and iOS<br />
                             Development
@@ -31,7 +31,7 @@ const TechnologiesWeMaster = () => {
                         <WebDevTechs>
                             <img src="/assets/androidtechs.svg"/ >
                         </WebDevTechs>
-                    </Col>
+                    </Col2>
                 </TwoCol>
             </Container>
         </View>
@@ -91,6 +91,9 @@ const TwoCol = styled.div`
     width: 90%;
     display: flex;
     justify-content: space-between;
+    @media(max-width: ${ MOBILE }) {
+        flex-direction: column;
+    }
 `
 const Col = styled.div`
     width: 50%;
@@ -104,10 +107,27 @@ const Col = styled.div`
         line-height: 34px;
         font-weight: 300;
     }
+    @media(max-width: ${ MOBILE }) {
+        width: 100%;
+    }
 `
+
+const Col2 = styled(Col)`
+    @media(max-width: ${ MOBILE }) {
+        margin-top: 50px;
+    }
+`
+
 const WebDevTechs = styled.div`
+    width: 50%;
     img {
         width: 100%;
+    }
+    @media(max-width: ${ TABLET }) {
+        width: 50%;
+    }
+    @media(max-width: ${ MOBILE }) {
+        width: 65%;
     }
 `
 

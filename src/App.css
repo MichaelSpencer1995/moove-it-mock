@@ -25,18 +25,19 @@ button:focus {
 }
 
 .testimonial-button {
-  width: 47px;
-  height: 47px;
+  width: 55px;
+  height: 55px;
   overflow: hidden;
   border-radius: 999px;
   border: none;
+  margin: 6px;
 }
 
 
 .testimonial-overlay {
   border-radius: 999px;
-  width: 47px;
-  height: 47px;
+  width: 55px;
+  height: 55px;
   position: absolute;
   background: rgba(255, 255, 255, 0.5);
   transition: box-shadow 0.5s ease, opacity 0.5s ease;
@@ -44,8 +45,8 @@ button:focus {
 
 .testimonial-overlay-active {
   border-radius: 999px;
-  width: 47px;
-  height: 47px;
+  width: 55px;
+  height: 55px;
   position: absolute;
   background: rgba(255, 255, 255, 0);
   transition: box-shadow 0.5s ease, opacity 0.5s ease;
@@ -62,11 +63,12 @@ button:focus {
 }
 
 .testimonial-button-active {
-  width: 47px;
+  width: 55px;
   border: none;
-  height: 47px;
+  height: 55px;
   overflow: hidden;
   border-radius: 999px;
   box-shadow: 0 0 0 3px #ff8d40;
   transition: box-shadow 0.5s ease, opacity 0.5s ease;
+  margin: 6px;
 }

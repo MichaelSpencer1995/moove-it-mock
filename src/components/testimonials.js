@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import Quoter from './quoter'
-import { TABLET } from '../constants'
+import { TABLET, MOBILE } from '../constants'
 
 const quote0 = "Moove-it has been instrumental in our ability to rapidly adapt and effectively respond to our market's demand. A strong cultural match, their savviness and consultative approach are key for our business to continue to choose Moove-it after 4+ years."
 const quote1 = "I can vouch for the @moove_it team being a wonderful bunch, and working for them would be a wise move."
@@ -36,20 +36,22 @@ class Testimonials extends Component {
       <View>
         <Container>
           <QuoteMarks xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 21" height="21" width="25"><path d="M7.31.21l3.088 2.47C7.104 4.945 4.52 8.96 4.315 12.246c.112-.103.833-.197 1.14-.197 2.36 0 4.11 1.954 4.11 4.313 0 2.368-1.852 4.427-4.426 4.427-2.773 0-5.14-2.367-5.14-6.588C0 8.445 3.293 3.092 7.31.21zm14.61 0L25 2.68c-3.294 2.265-5.868 6.28-6.066 9.566.103-.103.72-.206 1.133-.206 2.368 0 4.118 1.956 4.118 4.315 0 2.368-1.853 4.427-4.427 4.427-2.78 0-5.147-2.368-5.147-6.59 0-5.747 3.296-11.1 7.31-13.983z"></path></QuoteMarks>
+          
+          <QuoteWrapper>
+            <QuoteContainer>
+              <CurrentQuote>
+                {this.state.currentQuote[this.state.quoterIndex]}
+              </CurrentQuote>
+              
+              <CurrentQuoter>
+                {this.state.currentQuoter[this.state.quoterIndex][0]}
+              </CurrentQuoter>
 
-          <QuoteContainer>
-            <CurrentQuote>
-              {this.state.currentQuote[this.state.quoterIndex]}
-            </CurrentQuote>
-            
-            <CurrentQuoter>
-              {this.state.currentQuoter[this.state.quoterIndex][0]}
-            </CurrentQuoter>
-
-            <CurrentQuoterPoistion>
-              {this.state.currentQuoter[this.state.quoterIndex][1]}
-            </CurrentQuoterPoistion>
-          </QuoteContainer>
+              <CurrentQuoterPoistion>
+                {this.state.currentQuoter[this.state.quoterIndex][1]}
+              </CurrentQuoterPoistion>
+            </QuoteContainer>
+          </QuoteWrapper>
 
           <Quoters>
             <Quoter
@@ -133,8 +135,17 @@ const QuoteContainer = styled.div`
   @media(max-width: ${ TABLET }) {
     width: 60%;
   }
+  @media(max-width: ${ MOBILE }) {
+    width: 90%;
+  }
 `
-
+const QuoteWrapper = styled.div`
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
 
 const QuoteMarks = styled.svg`
   width: 40px;
@@ -143,7 +154,6 @@ const QuoteMarks = styled.svg`
 const CurrentQuote = styled.div`
   font-size: 18px;
   line-height: 24px;
-  height: 100px;
   font-weight: 300;
   color: rgb(115, 115, 115);
   text-align: center;
@@ -165,9 +175,17 @@ const CurrentQuoterPoistion = styled.h6`
 
 const Quoters = styled.div`
   width: 100%;
-  max-width: 500px;
+  max-width: 550px;
   display: flex;
   margin-top: 20px;
   justify-content: space-between;
+  @media(max-width: ${ MOBILE }) {
+    width: 70%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  @media(max-width: 450px) {
+    margin-top: 60px;
+  }
 `
 export default Testimonials

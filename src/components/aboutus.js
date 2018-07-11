@@ -118,6 +118,14 @@ const BlockWrapper = styled.div`
                 text-decoration: underline;
             }
         }
+        @media(max-width: ${ TABLET }) {
+            h3 {
+                padding-bottom: 8px;
+            }
+            p {
+                padding-bottom: 14px;
+            }
+        }
     }
 `
 const AllProjectsWrapper = styled(BlockWrapper)`
