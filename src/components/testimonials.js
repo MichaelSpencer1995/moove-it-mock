@@ -31,6 +31,33 @@ class Testimonials extends Component {
     }
   }
 
+  setNewQuoter(quoterToActivate) {
+    let newState = ["", "", "", "", "", "", "", ""]
+    newState[quoterToActivate] = "-active"
+
+    this.animateTestimonial()
+    this.setState({ 
+      active: newState,
+      quoterIndex: quoterToActivate
+    })
+  }
+
+  animateTestimonial() {
+    const testimonialElement = document.getElementsByClassName('testimonial-container')[0]
+    testimonialElement.style.opacity = '0'
+    testimonialElement.style.display = 'none'
+    testimonialElement.style.display = 'none'
+    testimonialElement.style.transform = 'translateY(-50px)'
+    
+    setTimeout(() => {
+      testimonialElement.style.display = 'flex'
+      setTimeout(() => {
+        testimonialElement.style.transform = 'translateY(0px)'
+        testimonialElement.style.opacity = '1'
+      }, 100)
+    }, 50)
+  }
+
   render() {
     return (
       <View>
@@ -38,7 +65,7 @@ class Testimonials extends Component {
           <QuoteMarks xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 21" height="21" width="25"><path d="M7.31.21l3.088 2.47C7.104 4.945 4.52 8.96 4.315 12.246c.112-.103.833-.197 1.14-.197 2.36 0 4.11 1.954 4.11 4.313 0 2.368-1.852 4.427-4.426 4.427-2.773 0-5.14-2.367-5.14-6.588C0 8.445 3.293 3.092 7.31.21zm14.61 0L25 2.68c-3.294 2.265-5.868 6.28-6.066 9.566.103-.103.72-.206 1.133-.206 2.368 0 4.118 1.956 4.118 4.315 0 2.368-1.853 4.427-4.427 4.427-2.78 0-5.147-2.368-5.147-6.59 0-5.747 3.296-11.1 7.31-13.983z"></path></QuoteMarks>
           
           <QuoteWrapper>
-            <QuoteContainer>
+            <QuoteContainer className="testimonial-container">
               <CurrentQuote>
                 {this.state.currentQuote[this.state.quoterIndex]}
               </CurrentQuote>
@@ -99,15 +126,6 @@ class Testimonials extends Component {
       </View>
     )
   }
-  setNewQuoter(quoterToActivate) {
-    let newState = ["", "", "", "", "", "", "", ""]
-    newState[quoterToActivate] = "-active"
-
-    this.setState({ 
-      active: newState,
-      quoterIndex: quoterToActivate
-    })
-  }
 }
 
 const View = styled.div`
@@ -132,6 +150,9 @@ const QuoteContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 50px;
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+
   @media(max-width: ${ TABLET }) {
     width: 60%;
   }
@@ -145,6 +166,10 @@ const QuoteWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
+  bottom: 20px;
+  transform: translateY(0px);
+
   @media(max-width: ${ TABLET }) {
     height: 250px;
   }
