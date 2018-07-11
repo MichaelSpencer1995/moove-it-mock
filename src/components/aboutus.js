@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import Carousel from './carousel'
 import { ORANGE, TABLET } from '../constants'
 
 class AboutUs extends Component {
@@ -7,6 +8,18 @@ class AboutUs extends Component {
         super()
         this.state = {
             view: "desktop"
+        }
+    }
+
+    componentWillMount() {
+        this.setView()
+    }
+
+    setView() {
+        if(window.innerWidth < 776) {
+            this.setState({
+                view: "mobile"
+            })
         }
     }
 
@@ -66,6 +79,11 @@ class AboutUs extends Component {
                     </Grid>
                 </DesktopView>
             )
+        } else {
+            return (
+                // <MobileView>
+                    <Carousel />
+            )
         }
     }
 }
@@ -79,6 +97,12 @@ const DesktopView = styled.div`
     @media(max-width: ${ TABLET }) {
         height: 66.666666vw;
     }
+`
+const MobileView = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `
 const Grid = styled.div`
     display: grid;
