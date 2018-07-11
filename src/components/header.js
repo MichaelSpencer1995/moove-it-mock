@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { TABLET } from '../constants'
+import { TABLET, MOBILE } from '../constants'
 
 class Header extends Component {
     render() {
@@ -22,7 +22,7 @@ const View = styled.div`
     height: calc(100vh - 200px);
     background-image: url(/assets/hero.jpg);
     background-size: cover;
-    background-position: 0px 50%;
+    background-position: 50% 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -54,6 +54,18 @@ const Container = styled.div`
             padding: 0;
             position: relative;
             bottom: 10px;
+        }
+    }
+    @media(max-width: ${ MOBILE }) {
+        width: 86%;
+        h1 {
+            font-size: 36px;
+        }
+    }
+    @media(max-width: 550px) {
+        width: 90%;
+        h1 {
+            font-size: 22px;
         }
     }
 `
