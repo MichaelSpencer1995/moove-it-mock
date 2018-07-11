@@ -140,11 +140,23 @@ const QuoteContainer = styled.div`
   }
 `
 const QuoteWrapper = styled.div`
-  height: 200px;
+  height: 220px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  @media(max-width: ${ TABLET }) {
+    height: 250px;
+  }
+  @media(max-width: ${ MOBILE }) {
+    width: 90%;
+  }
+  @media(max-width: 500px) {
+    height: 265px;
+  }
+  @media(max-width: 400px) {
+    height: 310px;
+  }
 `
 
 const QuoteMarks = styled.svg`
@@ -174,18 +186,10 @@ const CurrentQuoterPoistion = styled.h6`
 `
 
 const Quoters = styled.div`
-  width: 100%;
+  width: 90%;
   max-width: 550px;
   display: flex;
-  margin-top: 20px;
-  justify-content: space-between;
-  @media(max-width: ${ MOBILE }) {
-    width: 70%;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  @media(max-width: 450px) {
-    margin-top: 60px;
-  }
+  justify-content: center;
+  flex-wrap: wrap;
 `
 export default Testimonials
