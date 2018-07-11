@@ -24,6 +24,7 @@ const View = styled.a`
     right: 0;
     margin-right: 20px;
     margin-bottom: 20px;
+    z-index: 1;
     svg {
         width: 28px;
         height: 32px;

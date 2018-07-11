@@ -12,6 +12,31 @@ class Nav extends Component {
         }
     }
 
+    handleMenuTapped() {
+        this.animateMenuIcon()
+        this.toggleMenuOpenClosed()
+    }
+
+    animateMenuIcon() {
+        console.log('menu')
+    }
+
+    toggleMenuOpenClosed() {
+        const dropDownMenuElement = document.getElementsByClassName('drop-down-menu')[0]
+        const phoneNumberElement = document.getElementsByClassName('phone-number')[0]
+        const alreadyExpanded = dropDownMenuElement.style.opacity === '1'
+        
+        if(alreadyExpanded) {
+            dropDownMenuElement.style.opacity = '0'
+            dropDownMenuElement.style.height = '0'
+            phoneNumberElement.style.color = ORANGE
+        } else {
+            dropDownMenuElement.style.opacity = '1'
+            dropDownMenuElement.style.height = '100vh'
+            phoneNumberElement.style.color = 'white'
+        }
+    }
+
     render() {
         window.addEventListener('scroll', handleScroll)
         
@@ -69,21 +94,22 @@ class Nav extends Component {
                         </Logo>
                     </LogoContainer>
 
-                    <Links>
+                    <Links className="drop-down-menu">
                         <Link className="nav-home-link"><a className='nav-links' href="#">Home</a></Link>
                         <Link><a className='nav-links' href="#">About us</a></Link>
                         <Link><a className='nav-links' href="#">Services</a></Link>
                         <Link><a className='nav-links' href="#">Our Work</a></Link>
                         <Link><a className='nav-links' href="#">Careers</a></Link>
                         <Link><a className='nav-links' href="#">Blog</a></Link>
+                        <ContactLinkMobile><a className='nav-links' href="#">Contact</a></ContactLinkMobile>
                     </Links>
 
                     <ContactInfo>
-                        <PhoneNumber>+1 (512) 949-8991</PhoneNumber>
+                        <PhoneNumber className="phone-number">+1 (512) 949-8991</PhoneNumber>
                         <ContactButton className='nav-contact-button'>Contact</ContactButton>
                     </ContactInfo>
 
-                    <MenuExpander>
+                    <MenuExpander onClick={() => this.handleMenuTapped()}>
                         <div />
                         <div />
                         <div />
@@ -101,6 +127,7 @@ const MenuExpander = styled.div`
     padding: 7px 0;
     display: none;
     flex-basis: auto !important;
+    z-index: 1;
     &:hover {
         cursor: pointer;
     }
@@ -144,6 +171,7 @@ const Container = styled.div`
     }
 `
 const LogoContainer = styled.div`
+    z-index: 1;
     @media(max-width: ${ TABLET }) {
         flex-basis: auto;
     }
@@ -178,18 +206,20 @@ const Links = styled.ul`
     color: black;
     position: relative;
     top: 4px;
+    transition: 0.33333s;
     @media(max-width: ${ TABLET }) {
         flex-grow: 1;
     }
     @media(max-width: ${ MOBILE }) {
         position: absolute;
-        height: 100vh;
+        overflow: hidden;
+        height: 0;
         width: 100%;
         top: 0;
         left: 0;
+        opacity: 0;
         flex-direction: column;
         background: rgba(255,141,64,.9);
-        display: none;
     }
 `
 const Link = styled.li`
@@ -220,8 +250,26 @@ const Link = styled.li`
     }
     @media(max-width: ${ MOBILE }) {
         border: none;
+        position: relative;
+        top: 85px;
+        padding-bottom: 11px;
         &:hover {
             border: none;
+        }
+    }
+`
+const ContactLinkMobile = styled(Link)`
+    display: none;
+    border: white 1px solid;
+    border-radius: 999px;
+    padding: 7px 0;
+    margin: 0;
+    @media(max-width: ${ MOBILE }) {
+        display: block;
+        top: 80px;
+        &:hover {
+            border: white 1px solid;
+            background: #111a502b;
         }
     }
 `
@@ -232,6 +280,7 @@ const ContactInfo = styled.div`
     position: relative;
     top: 2px;
     right: 9px;
+    z-index: 1;
     @media(max-width: ${ TABLET }) {
         right: 5px;
         flex-basis: auto;
