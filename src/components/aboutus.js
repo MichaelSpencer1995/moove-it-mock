@@ -81,8 +81,7 @@ class AboutUs extends Component {
             )
         } else {
             return (
-                // <MobileView>
-                    <Carousel />
+                <Carousel />
             )
         }
     }

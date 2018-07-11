@@ -152,7 +152,7 @@ const QuoteWrapper = styled.div`
     width: 90%;
   }
   @media(max-width: 500px) {
-    height: 265px;
+    height: 310px;
   }
   @media(max-width: 400px) {
     height: 310px;
