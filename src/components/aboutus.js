@@ -116,10 +116,10 @@ class AboutUs extends Component {
                     <AboutUsMobileContainer>
                         <OurExperienceWrapper>
                             <OurExperienceContainer>
-                                <ExpanderH3Container1>
+                                <ExpanderH3Container1 onClick={() => this.handleExpanderTapped(0)}>
                                     <h3>Our Experience</h3>
 
-                                    <ExpanderWrapper1 className="expanders" onClick={() => this.handleExpanderTapped(0)}>
+                                    <ExpanderWrapper1 className="expanders">
                                         <img src="/assets/expander.svg" />
                                     </ExpanderWrapper1>
                                 </ExpanderH3Container1>
@@ -137,10 +137,10 @@ class AboutUs extends Component {
                         
                         <OurTeamWrapper>
                             <OurTeamContainer>
-                                <ExpanderH3Container2>
+                                <ExpanderH3Container2 onClick={() => this.handleExpanderTapped(1)}>
                                     <h3>Our Team</h3>
 
-                                    <ExpanderWrapper2 className="expanders" onClick={() => this.handleExpanderTapped(1)}>
+                                    <ExpanderWrapper2 className="expanders">
                                         <img src="/assets/expander.svg" />
                                     </ExpanderWrapper2>
                                 </ExpanderH3Container2>
@@ -159,10 +159,10 @@ class AboutUs extends Component {
 
                         <OurProcessWrapper>
                             <OurProcessContainer>
-                                <ExpanderH3Container3>
+                                <ExpanderH3Container3 onClick={() => this.handleExpanderTapped(2)}>
                                     <h3>Our Process</h3>
 
-                                    <ExpanderWrapper3 className="expanders" onClick={() => this.handleExpanderTapped(2)}>
+                                    <ExpanderWrapper3 className="expanders">
                                         <img src="/assets/expander.svg" />
                                     </ExpanderWrapper3>
                                 </ExpanderH3Container3>
