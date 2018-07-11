@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import Carousel from './carousel'
 import { ORANGE, TABLET, MOBILE } from '../constants'
 
+let ourExpToExpand, ourTeamContainerElement, OurProcessContainerElement
+
 class AboutUs extends Component {
     constructor() {
         super()
@@ -20,6 +22,33 @@ class AboutUs extends Component {
             this.setState({
                 view: "mobile"
             })
+        }
+    }
+
+    handleExpanderTapped(sectionToExpandIndex) {
+        this.rotateIcon(sectionToExpandIndex)
+        this.expandSection(sectionToExpandIndex)
+    }
+    
+    expandSection(index) {
+        let toExpandElements = document.getElementsByClassName('to-expand-containers')
+        const alreadyExpanded = toExpandElements[index].style.maxHeight === "2000px"
+        
+        if(alreadyExpanded) {
+            toExpandElements[index].style.maxHeight = '0'
+        } else {
+            toExpandElements[index].style.maxHeight = '2000px'
+        }
+    }
+
+    rotateIcon(index) {
+        let expanderElements = document.getElementsByClassName('expanders')
+        const alreadyExpanded = expanderElements[index].style.transform === 'rotate(0deg)'
+        
+        if(alreadyExpanded) {
+            expanderElements[index].style.transform = 'rotate(180deg)'
+        } else {
+            expanderElements[index].style.transform = 'rotate(0deg)'
         }
     }
 
@@ -90,12 +119,12 @@ class AboutUs extends Component {
                                 <ExpanderH3Container1>
                                     <h3>Our Experience</h3>
 
-                                    <ExpanderWrapper1>
+                                    <ExpanderWrapper1 className="expanders" onClick={() => this.handleExpanderTapped(0)}>
                                         <img src="/assets/expander.svg" />
                                     </ExpanderWrapper1>
                                 </ExpanderH3Container1>
 
-                                <ToExpand1>
+                                <ToExpand1 className="to-expand-containers">
                                     <p>
                                         We deliver high-value and compelling web and mobile apps
                                         throughout a wide range of vertical markets and industries. 
@@ -111,12 +140,12 @@ class AboutUs extends Component {
                                 <ExpanderH3Container2>
                                     <h3>Our Team</h3>
 
-                                    <ExpanderWrapper2>
+                                    <ExpanderWrapper2 className="expanders" onClick={() => this.handleExpanderTapped(1)}>
                                         <img src="/assets/expander.svg" />
                                     </ExpanderWrapper2>
                                 </ExpanderH3Container2>
 
-                                <ToExpand2>
+                                <ToExpand2 className="to-expand-containers">
                                     <p>
                                         We have an enthusiastic, professional and reliable team.
                                         We efficiently integrate cross-disciplinary talents with
@@ -133,12 +162,12 @@ class AboutUs extends Component {
                                 <ExpanderH3Container3>
                                     <h3>Our Process</h3>
 
-                                    <ExpanderWrapper3>
+                                    <ExpanderWrapper3 className="expanders" onClick={() => this.handleExpanderTapped(2)}>
                                         <img src="/assets/expander.svg" />
                                     </ExpanderWrapper3>
                                 </ExpanderH3Container3>
 
-                                <ToExpand3>
+                                <ToExpand3 className="to-expand-containers">
                                     <p>
                                         We unify design and product strategy in an agile context to
                                         reduce development cycles and maximize the value delivered
@@ -195,6 +224,8 @@ const ExpanderWrapper = styled.button`
     width: 20px;
     border: none;
     background: transparent;
+    transform: rotate(180deg);
+    transition: transform .25s ease;
     img {
         width: 100%;
     }
@@ -204,10 +235,13 @@ const ExpanderWrapper2 = styled(ExpanderWrapper)``
 const ExpanderWrapper3 = styled(ExpanderWrapper)``
 
 const ToExpand = styled.div`
-    height: 0;
+    max-height: 0;
     overflow: hidden;
+    transition: max-height 0.5s ease;
 `
-const ToExpand1 = styled(ToExpand)``
+const ToExpand1 = styled(ToExpand)`
+    transition: max-height 0.5s ease;
+`
 const ToExpand2 = styled(ToExpand)``
 const ToExpand3 = styled(ToExpand)``
 
@@ -270,6 +304,8 @@ const BlockWrapper = styled.div`
             p {
                 color: white;
                 line-height: 30px;
+                margin-top: 18px;
+                margin-bottom: 18px;
             }
         }
     }
