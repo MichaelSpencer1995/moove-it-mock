@@ -18,7 +18,22 @@ class Nav extends Component {
     }
 
     animateMenuIcon() {
-        console.log('menu')
+        const bars = document.getElementsByClassName('bars')
+        const alreadyExpanded = bars[1].style.opacity === '0'
+        
+        if(alreadyExpanded) {
+            bars[1].style.opacity = '1'
+            bars[0].style.transform = 'rotate(0deg)'
+            bars[2].style.transform = 'rotate(0deg)'
+            bars[0].style.top = '0'
+            bars[2].style.top = '0'
+        } else {
+            bars[0].style.transform = 'rotate(-45deg)'
+            bars[2].style.transform = 'rotate(45deg)'
+            bars[1].style.opacity = '0'
+            bars[0].style.top = '6px'
+            bars[2].style.top = '-6px'
+        }
     }
 
     toggleMenuOpenClosed() {
@@ -110,9 +125,9 @@ class Nav extends Component {
                     </ContactInfo>
 
                     <MenuExpander onClick={() => this.handleMenuTapped()}>
-                        <div />
-                        <div />
-                        <div />
+                        <Bar1 className="bars"/>
+                        <Bar2 className="bars"/>
+                        <Bar3 className="bars"/>
                     </MenuExpander>
                 </Container>
             </View>
@@ -136,11 +151,24 @@ const MenuExpander = styled.div`
         flex-direction: column;
         justify-content: space-between;
         div {
+            transition: all 0.3s ease-in-out;
             width: 100%;
+            top: 0;
+            position: relative;
             height: 3px;
             background: white;
         }
     }
+`
+
+const Bar1 = styled.div`
+    transform: rotate(0deg);
+`
+const Bar2 = styled.div`
+    opacity: 1;
+`
+const Bar3 = styled.div`
+    transform: rotate(0deg);
 `
 
 const View = styled.div`
@@ -301,7 +329,7 @@ const PhoneNumber = styled.a`
     @media(max-width: ${ MOBILE }) {
         font-size: 14px;
         margin-right: 15px;
-        bottom: 5px;
+        bottom: 6px;
     }
 `
 const ContactButton = styled.button`
