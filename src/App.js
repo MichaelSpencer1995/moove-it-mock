@@ -12,23 +12,21 @@ import WhatWeDo from './components/whatwedo'
 import './App.css'
 import TechnologiesWeMaster from './components/technologieswemaster';
 
-class App extends Component {
-  render() {
-    return (
-      <Container>
-        <Nav />
-        <Header />
-        <Brands />
-        <Testimonials />
-        <WhatWeDo />
-        {/* <AboutUs /> */}
-        <TechnologiesWeMaster />
-        <ContactUs />
-        <Footer />
-        <MessageUs />
-      </Container>
-    )
-  }
+const App = () => {
+  return (
+    <Container>
+      <Nav />
+      <Header />
+      <Brands />
+      <Testimonials />
+      <WhatWeDo />
+      {/* <AboutUs /> */}
+      <TechnologiesWeMaster />
+      <ContactUs />
+      <Footer />
+      <MessageUs />
+    </Container>
+  )
 }
 
 const Container = styled.div`

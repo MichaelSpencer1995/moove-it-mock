@@ -2,50 +2,48 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { ORANGE, TABLET, MOBILE } from '../constants'
 
-class Brands extends Component {
-    render() {
-        return (
-            <View id="brands-target">
-                <Container>
-                    <LineAndCircle />  
+const Brands = () => {
+    return (
+        <View id="brands-target">
+            <Container>
+                <LineAndCircle />  
 
-                    <a onClick={() => {
-                        const element = document.getElementById('brands-target')
-                        element.scrollIntoView({behavior: "smooth", block: "start"})
-                    }}>Brands that trust us</a>
+                <a onClick={() => {
+                    const element = document.getElementById('brands-target')
+                    element.scrollIntoView({behavior: "smooth", block: "start"})
+                }}>Brands that trust us</a>
 
-                    <BrandsContainer>
-                        <Brand><img src="/assets/brands/mlb.png" /></Brand>
-                        <Brand><img src="/assets/brands/unilever.jpg" /></Brand>
-                        <Brand><img src="/assets/brands/verifone.jpg" /></Brand>
-                        <Brand><img src="/assets/brands/edsurge.jpg" /></Brand>
-                        <Brand><img src="/assets/brands/prescribewellness.png" /></Brand>
-                        <Brand><img src="/assets/brands/catapult.png" /></Brand>
-                        <Brand><img src="/assets/brands/numerex.jpg" /></Brand>
-                        <Brand><img src="/assets/brands/youscience.jpg" /></Brand>
-                        <Brand><img src="/assets/brands/geoforce.jpg" /></Brand>
-                        <Brand><img src="/assets/brands/kd.png" /></Brand>
-                        <Brand><img src="/assets/brands/quantumiot.png" /></Brand>
-                        <Brand><img src="/assets/brands/therapydia.png" /></Brand>
-                        <Brand><img src="/assets/brands/bancard.jpg" /></Brand>
-                        <Brand><img src="/assets/brands/bandai.jpg" /></Brand>
-                        <Brand><img src="/assets/brands/bcp.jpg" /></Brand>
-                        <Brand><img src="/assets/brands/tugg.jpg" /></Brand>
-                        <Brand><img src="/assets/brands/mapright.jpg" /></Brand>
-                        <Brand><img src="/assets/brands/uversity.jpg" /></Brand>
-                        <Brand><img src="/assets/brands/petrobras.jpg" /></Brand>
-                        <Brand><img src="/assets/brands/voy.png" /></Brand>
-                    </BrandsContainer>
+                <BrandsContainer>
+                    <Brand><img src="/assets/brands/mlb.png" /></Brand>
+                    <Brand><img src="/assets/brands/unilever.jpg" /></Brand>
+                    <Brand><img src="/assets/brands/verifone.jpg" /></Brand>
+                    <Brand><img src="/assets/brands/edsurge.jpg" /></Brand>
+                    <Brand><img src="/assets/brands/prescribewellness.png" /></Brand>
+                    <Brand><img src="/assets/brands/catapult.png" /></Brand>
+                    <Brand><img src="/assets/brands/numerex.jpg" /></Brand>
+                    <Brand><img src="/assets/brands/youscience.jpg" /></Brand>
+                    <Brand><img src="/assets/brands/geoforce.jpg" /></Brand>
+                    <Brand><img src="/assets/brands/kd.png" /></Brand>
+                    <Brand><img src="/assets/brands/quantumiot.png" /></Brand>
+                    <Brand><img src="/assets/brands/therapydia.png" /></Brand>
+                    <Brand><img src="/assets/brands/bancard.jpg" /></Brand>
+                    <Brand><img src="/assets/brands/bandai.jpg" /></Brand>
+                    <Brand><img src="/assets/brands/bcp.jpg" /></Brand>
+                    <Brand><img src="/assets/brands/tugg.jpg" /></Brand>
+                    <Brand><img src="/assets/brands/mapright.jpg" /></Brand>
+                    <Brand><img src="/assets/brands/uversity.jpg" /></Brand>
+                    <Brand><img src="/assets/brands/petrobras.jpg" /></Brand>
+                    <Brand><img src="/assets/brands/voy.png" /></Brand>
+                </BrandsContainer>
 
-                    <LetsWorkTogether>
-                        <RightArrow src="/assets/arrow-right.svg" />
+                <LetsWorkTogether>
+                    <RightArrow src="/assets/arrow-right.svg" />
 
-                        <span>Let's work together</span>
-                    </LetsWorkTogether>
-                </Container>
-            </View>
-        )
-    }
+                    <span>Let's work together</span>
+                </LetsWorkTogether>
+            </Container>
+        </View>
+    )
 }
 
 const LineAndCircle = styled.div`
