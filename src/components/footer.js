@@ -128,12 +128,17 @@ const View = styled.div`
     }
     @media(max-width: ${ MOBILE }) {
         background: #1d1d1d;
+        padding-top: 0px;
+        padding-bottom: 0px;
     }
 `
 const Container = styled.div`
     width: 86%;
     @media(max-width: ${ TABLET }) {
         width: 94%;
+    }
+    @media(max-width: ${ MOBILE }) {
+        width: 88%;
     }
 `
 const Top = styled.div`
@@ -153,6 +158,9 @@ const Bottom = styled.div`
     @media(max-width: ${ MOBILE }) {
         width: 80%;
     }
+    @media(max-width: 400px) {
+        flex-direction: column;
+    }
 `
 const TopLeftContainer = styled.div`
     flex-basis: 41%;
@@ -165,6 +173,10 @@ const TopRightContainer = styled.div`
     @media(max-width: ${ MOBILE }) {
         padding-left: 18%;
         padding-top: 25px;
+    }
+    @media(max-width: 400px) {
+        flex-basis: 100%;
+        padding-left: 0;
     }
 `
 const BottomLeftContainer = styled.div`
@@ -193,6 +205,15 @@ const BottomRightContainer = styled.div`
             margin: 0;
             position: relative;
             top: 10px;
+        }
+    }
+    @media(max-width: 400px) {
+        justify-content: flex-start;
+        a {
+            margin: 0 !important;
+            padding: 0 !important;
+            top: -22px;
+            left: 10px;
         }
     }
 `
@@ -230,9 +251,20 @@ const ThreeCol = styled.div`
             }
         }
     }
+    @media(max-width: 400px) {
+        flex-direction: column;
+    }
 `
-const FirstCol = styled.div``
-const SecondCol = styled.div``
+const FirstCol = styled.div`
+    @media(max-width: 400px) {
+        margin-bottom: 8px;
+    }
+`
+const SecondCol = styled.div`
+    @media(max-width: 400px) {
+        margin-bottom: 8px;
+    }
+`
 const ThirdCol = styled.div``
 const ThreeRow = styled.div`
     div {
@@ -251,7 +283,12 @@ const FirstRow = styled.div``
 const SecondRow = styled.div`
     margin-bottom: 20px !important;
 `
-const ThirdRow = styled.div``
+const ThirdRow = styled.div`
+    @media(max-width: 400px) {
+        position: relative;
+        left: 10px;
+    }
+`
 const LocationIcon = styled.div`
     width: 50px;
     padding-right: 20px;
