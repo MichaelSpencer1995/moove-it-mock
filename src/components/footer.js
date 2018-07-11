@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { ORANGE, TABLET } from '../constants'
+import { ORANGE, TABLET, MOBILE } from '../constants'
 
 class Footer extends Component {
     render() {
@@ -123,6 +123,12 @@ const View = styled.div`
     padding-bottom: 54px;
     flex-direction: column;
     align-items: center;
+    a {
+        align-self: flex-start;
+    }
+    @media(max-width: ${ MOBILE }) {
+        background: #1d1d1d;
+    }
 `
 const Container = styled.div`
     width: 86%;
@@ -135,11 +141,18 @@ const Top = styled.div`
     display: flex;
     justify-content: space-between;
     padding-bottom: 20px;
+    @media(max-width: ${ MOBILE }) {
+        flex-direction: column;
+        justify-content: none;
+    }
 `
 const Bottom = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
+    @media(max-width: ${ MOBILE }) {
+        width: 75%;
+    }
 `
 const TopLeftContainer = styled.div`
     flex-basis: 41%;
@@ -149,9 +162,16 @@ const TopLeftContainer = styled.div`
 `
 const TopRightContainer = styled.div`
     flex-basis: 42%;
+    @media(max-width: ${ MOBILE }) {
+        padding-left: 18%;
+        padding-top: 25px;
+    }
 `
 const BottomLeftContainer = styled.div`
     flex-basis: 42%;
+    @media(max-width: ${ MOBILE }) {
+        flex-basis: auto;
+    }
 `
 const BottomRightContainer = styled.div`
     flex-basis: 42%;
@@ -164,6 +184,9 @@ const BottomRightContainer = styled.div`
             text-decoration: underline;
         }
     }
+    @media(max-width: ${ MOBILE }) {
+        flex-basis: auto;
+    }
 `
 const Logo = styled.svg`
     transform: scale(0.66);
@@ -174,6 +197,9 @@ const Logo = styled.svg`
 const ThreeCol = styled.div`
     display: flex;
     justify-content: space-between;
+    > * {
+        flex-basis: 32%;
+    }
     div {
         display: flex;
         flex-direction: column;
@@ -198,9 +224,7 @@ const ThreeCol = styled.div`
     }
 `
 const FirstCol = styled.div``
-const SecondCol = styled.div`
-    margin-left: 55px;
-`
+const SecondCol = styled.div``
 const ThirdCol = styled.div``
 const ThreeRow = styled.div`
     div {
@@ -234,10 +258,6 @@ const LocationIcon2 = styled(LocationIcon)`
 const SocialMediaIcons = styled.div`
     display: flex;
     padding-bottom: 20px;
-
-    a {
-    }
-    
     a > svg {
         transition: background 0.2s ease, fill 0.2s ease;
         padding: 11.5px;
