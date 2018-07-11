@@ -119,9 +119,9 @@ class AboutUs extends Component {
                                 <ExpanderH3Container1 onClick={() => this.handleExpanderTapped(0)}>
                                     <h3>Our Experience</h3>
 
-                                    <ExpanderWrapper1 className="expanders">
+                                    <ExpanderWrapper className="expanders">
                                         <img src="/assets/expander.svg" />
-                                    </ExpanderWrapper1>
+                                    </ExpanderWrapper>
                                 </ExpanderH3Container1>
 
                                 <ToExpand1 className="to-expand-containers">
@@ -140,9 +140,9 @@ class AboutUs extends Component {
                                 <ExpanderH3Container2 onClick={() => this.handleExpanderTapped(1)}>
                                     <h3>Our Team</h3>
 
-                                    <ExpanderWrapper2 className="expanders">
+                                    <ExpanderWrapper className="expanders">
                                         <img src="/assets/expander.svg" />
-                                    </ExpanderWrapper2>
+                                    </ExpanderWrapper>
                                 </ExpanderH3Container2>
 
                                 <ToExpand2 className="to-expand-containers">
@@ -162,9 +162,9 @@ class AboutUs extends Component {
                                 <ExpanderH3Container3 onClick={() => this.handleExpanderTapped(2)}>
                                     <h3>Our Process</h3>
 
-                                    <ExpanderWrapper3 className="expanders">
+                                    <ExpanderWrapper className="expanders">
                                         <img src="/assets/expander.svg" />
-                                    </ExpanderWrapper3>
+                                    </ExpanderWrapper>
                                 </ExpanderH3Container3>
 
                                 <ToExpand3 className="to-expand-containers">
@@ -230,10 +230,6 @@ const ExpanderWrapper = styled.button`
         width: 100%;
     }
 `
-const ExpanderWrapper1 = styled(ExpanderWrapper)``
-const ExpanderWrapper2 = styled(ExpanderWrapper)``
-const ExpanderWrapper3 = styled(ExpanderWrapper)``
-
 const ToExpand = styled.div`
     max-height: 0;
     overflow: hidden;
