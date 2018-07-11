@@ -1,8 +1,17 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { ORANGE, TABLET } from '../constants'
+import { ORANGE, TABLET, MOBILE } from '../constants'
+let isMobile
 
 class Nav extends Component {
+    componentWillMount() {
+        if(window.innerWidth < 776) {
+            isMobile = true 
+        } else {
+            isMobile = false
+        }
+    }
+
     render() {
         window.addEventListener('scroll', handleScroll)
         
@@ -15,12 +24,24 @@ class Nav extends Component {
             const navLinks = document.getElementsByClassName('nav-links')
             const navHomeLink = document.getElementsByClassName('nav-home-link')[0]
             const navContactButton = document.getElementsByClassName('nav-contact-button')[0]
+            let navColor
+
+            if(window.innerWidth < 776) {
+                navColor = "#3a3a3a"
+            } else {
+                navColor = "white"
+            }
             
+
             if(window.scrollY > 0) {
-                navView.style.background = 'white'
+                navView.style.background = navColor
                 navContactButton.style.borderColor = ORANGE
                 navContactButton.style.color = 'rgb(58, 58, 58)'
                 navHomeLink.style.borderColor = '#3a3a3a'
+                if(isMobile) {
+                    navView.style.boxShadow = '0 0 3px rgba(0,0,0,0.6)'
+                    return
+                }
                 for(let i = 0; i < navLinks.length; i++) {
                     navLinks[i].style.color = '#3a3a3a'
                 }
@@ -29,6 +50,10 @@ class Nav extends Component {
                 navContactButton.style.borderColor = 'white'
                 navContactButton.style.color = 'white'
                 navHomeLink.style.borderColor = 'white'
+                if(isMobile) {
+                    navView.style.boxShadow = 'none'
+                    return
+                }
                 for(let i = 0; i < navLinks.length; i++) {
                     navLinks[i].style.color = 'white'
                 }
@@ -57,11 +82,39 @@ class Nav extends Component {
                         <PhoneNumber>+1 (512) 949-8991</PhoneNumber>
                         <ContactButton className='nav-contact-button'>Contact</ContactButton>
                     </ContactInfo>
+
+                    <MenuExpander>
+                        <div />
+                        <div />
+                        <div />
+                    </MenuExpander>
                 </Container>
             </View>
         )
     }
 }
+
+const MenuExpander = styled.div`
+    width: 30px;
+    height: 29px;
+    box-sizing: border-box;
+    padding: 7px 0;
+    display: none;
+    flex-basis: auto !important;
+    &:hover {
+        cursor: pointer;
+    }
+    @media(max-width: ${ MOBILE }) {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        div {
+            width: 100%;
+            height: 3px;
+            background: white;
+        }
+    }
+`
 
 const View = styled.div`
     z-index: 1;
@@ -76,6 +129,9 @@ const View = styled.div`
     padding: 10px;
     box-sizing: border-box;
     transition: 0.33333s background-color;
+    @media(max-width: ${ MOBILE }) {
+        padding: 20px;
+    }
 `
 const Container = styled.div`
     width: 100%;
@@ -101,9 +157,18 @@ const Logo = styled.a`
     height: 50px;
     width: 50px;
     margin-right: 5px;
+    @media(max-width: ${ MOBILE }) {
+        background: transparent;
+        height: auto;
+        width: auto;
+    }
 `
 const LogoSvg = styled.svg`
     fill: white;
+    @media(max-width: ${ MOBILE }) {
+        transform: scale(1.17);
+        transform-origin: 0px 0px;
+    }
 `
 const Links = styled.ul`
     display: flex;
@@ -115,6 +180,16 @@ const Links = styled.ul`
     top: 4px;
     @media(max-width: ${ TABLET }) {
         flex-grow: 1;
+    }
+    @media(max-width: ${ MOBILE }) {
+        position: absolute;
+        height: 100vh;
+        width: 100%;
+        top: 0;
+        left: 0;
+        flex-direction: column;
+        background: rgba(255,141,64,.9);
+        display: none;
     }
 `
 const Link = styled.li`
@@ -143,6 +218,12 @@ const Link = styled.li`
         padding: 0;
         padding-bottom: 10px;
     }
+    @media(max-width: ${ MOBILE }) {
+        border: none;
+        &:hover {
+            border: none;
+        }
+    }
 `
 const ContactInfo = styled.div`
     display: flex;
@@ -155,6 +236,9 @@ const ContactInfo = styled.div`
         right: 5px;
         flex-basis: auto;
     }
+    @media(max-width: ${ MOBILE }) {
+        flex-grow: 1;
+    }
 `
 const PhoneNumber = styled.a`
     color: ${ ORANGE };
@@ -164,6 +248,11 @@ const PhoneNumber = styled.a`
     bottom: 4px;
     &:hover {
         text-decoration: underline;
+    }
+    @media(max-width: ${ MOBILE }) {
+        font-size: 14px;
+        margin-right: 15px;
+        bottom: 5px;
     }
 `
 const ContactButton = styled.button`
@@ -183,6 +272,9 @@ const ContactButton = styled.button`
     }
     @media(max-width: ${ TABLET }) {
         margin-left: 18px;
+    }
+    @media(max-width: ${ MOBILE }) {
+        display: none;
     }
 `
 

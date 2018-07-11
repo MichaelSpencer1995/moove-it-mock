@@ -92,6 +92,9 @@ const LineAndCircle = styled.div`
         border: #737373 1px solid;
         border-radius: 999px;
     }
+    &:hover {
+        cursor: pointer;
+    }
 `
 const ThreeCol = styled.div`
     display: flex;

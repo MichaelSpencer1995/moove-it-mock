@@ -72,6 +72,9 @@ const LineAndCircle = styled.div`
         border: #737373 1px solid;
         border-radius: 999px;
     }
+    &:hover {
+        cursor: pointer;
+    }
 `
 const View = styled.div`
     width: 100%;
