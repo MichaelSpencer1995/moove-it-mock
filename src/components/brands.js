@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { ORANGE } from '../constants'
+import { ORANGE, TABLET, MOBILE } from '../constants'
 
 class Brands extends Component {
     render() {
@@ -106,13 +106,23 @@ const Container = styled.div`
 const BrandsContainer = styled.div`
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     padding-left: 10px;
     padding-right: 10px;
     box-sizing: border-box;
     > * {
         flex-basis: 20%;
+    }
+    @media(max-width: ${ MOBILE }) {
+        > * {
+            flex-basis: 33.33333%;
+        }
+    }
+    @media(max-width: 400px) {
+        > * {
+            flex-basis: 50%;
+        }
     }
 `
 const Brand = styled.div`
