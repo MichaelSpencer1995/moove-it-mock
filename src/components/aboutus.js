@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import Carousel from './carousel'
-import { ORANGE, TABLET } from '../constants'
+import { ORANGE, TABLET, MOBILE } from '../constants'
 
 class AboutUs extends Component {
     constructor() {
@@ -81,7 +81,76 @@ class AboutUs extends Component {
             )
         } else {
             return (
-                <Carousel />
+                <MobileView>
+                    <Carousel />
+
+                    <AboutUsMobileContainer>
+                        <OurExperienceWrapper>
+                            <OurExperienceContainer>
+                                <ExpanderH3Container1>
+                                    <h3>Our Experience</h3>
+
+                                    <ExpanderWrapper1>
+                                        <img src="/assets/expander.svg" />
+                                    </ExpanderWrapper1>
+                                </ExpanderH3Container1>
+
+                                <ToExpand1>
+                                    <p>
+                                        We deliver high-value and compelling web and mobile apps
+                                        throughout a wide range of vertical markets and industries. 
+                                    </p>
+
+                                    <a href="#">Read more</a>
+                                </ToExpand1>
+                            </OurExperienceContainer>
+                        </OurExperienceWrapper>
+                        
+                        <OurTeamWrapper>
+                            <OurTeamContainer>
+                                <ExpanderH3Container2>
+                                    <h3>Our Team</h3>
+
+                                    <ExpanderWrapper2>
+                                        <img src="/assets/expander.svg" />
+                                    </ExpanderWrapper2>
+                                </ExpanderH3Container2>
+
+                                <ToExpand2>
+                                    <p>
+                                        We have an enthusiastic, professional and reliable team.
+                                        We efficiently integrate cross-disciplinary talents with
+                                        a well-defined development process. 
+                                    </p>
+
+                                    <a href="#">Read more</a>
+                                </ToExpand2>
+                            </OurTeamContainer>
+                        </OurTeamWrapper>
+
+                        <OurProcessWrapper>
+                            <OurProcessContainer>
+                                <ExpanderH3Container3>
+                                    <h3>Our Process</h3>
+
+                                    <ExpanderWrapper3>
+                                        <img src="/assets/expander.svg" />
+                                    </ExpanderWrapper3>
+                                </ExpanderH3Container3>
+
+                                <ToExpand3>
+                                    <p>
+                                        We unify design and product strategy in an agile context to
+                                        reduce development cycles and maximize the value delivered
+                                        to stakeholders. 
+                                    </p>
+
+                                    <a href="#">Read more</a>
+                                </ToExpand3>
+                            </OurProcessContainer>
+                        </OurProcessWrapper>
+                    </AboutUsMobileContainer>
+                </MobileView>
             )
         }
     }
@@ -102,7 +171,46 @@ const MobileView = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: #3a3a3a;
 `
+const AboutUsMobileContainer = styled.div`
+    background: #3a3a3a;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+
+const ExpanderH3Container = styled.div`
+    display: flex;
+    justify-content: space-between;
+    border-top: #737373 1px solid;
+    padding-top: 20px;
+`
+const ExpanderH3Container1 = styled(ExpanderH3Container)`border: none;`
+const ExpanderH3Container2 = styled(ExpanderH3Container)`margin-top: 14px;`
+const ExpanderH3Container3 = styled(ExpanderH3Container)`margin-top: 14px;`
+
+const ExpanderWrapper = styled.button`
+    width: 20px;
+    border: none;
+    background: transparent;
+    img {
+        width: 100%;
+    }
+`
+const ExpanderWrapper1 = styled(ExpanderWrapper)``
+const ExpanderWrapper2 = styled(ExpanderWrapper)``
+const ExpanderWrapper3 = styled(ExpanderWrapper)``
+
+const ToExpand = styled.div`
+    height: 0;
+    overflow: hidden;
+`
+const ToExpand1 = styled(ToExpand)``
+const ToExpand2 = styled(ToExpand)``
+const ToExpand3 = styled(ToExpand)``
+
 const Grid = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -141,12 +249,27 @@ const BlockWrapper = styled.div`
                 text-decoration: underline;
             }
         }
-        @media(max-width: ${ TABLET }) {
+    }
+    @media(max-width: ${ TABLET }) {
+        div {
             h3 {
                 padding-bottom: 8px;
             }
             p {
                 padding-bottom: 14px;
+            }
+        }
+    }
+    @media(max-width: ${ MOBILE }) {
+        div {
+            h3 {
+                font-size: 21px;
+                font-weight: 300;
+                color: white;
+            }
+            p {
+                color: white;
+                line-height: 30px;
             }
         }
     }
@@ -172,6 +295,9 @@ const OurExperienceWrapper = styled(BlockWrapper)`
         grid-column: 3;
         grid-row: 1;
     }
+    @media(max-width: ${ MOBILE }) {
+        background: #3a3a3a;
+    }
 `
 const OurTeamWrapper = styled(BlockWrapper)`
     background: white;
@@ -182,6 +308,10 @@ const OurTeamWrapper = styled(BlockWrapper)`
         grid-column: 1;
         grid-row: 2;
     }
+    @media(max-width: ${ MOBILE }) {
+        background: #3a3a3a;
+        padding: 0px 25px;
+    }
 `
 const OurProcessWrapper = styled(BlockWrapper)`
     background: white;
@@ -190,6 +320,10 @@ const OurProcessWrapper = styled(BlockWrapper)`
     @media(max-width: ${ TABLET }) {
         grid-column: 2;
         grid-row: 2;
+    }
+    @media(max-width: ${ MOBILE }) {
+        background: #3a3a3a;
+        margin-bottom: 20px;
     }
 `
 
