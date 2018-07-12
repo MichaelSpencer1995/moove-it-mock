@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import Nav from './components/nav'
+import Nav from './components/nav2'
 import AboutUs from './components/aboutus'
 import Brands from './components/brands'
 import ContactUs from './components/contactus'

@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { ORANGE, TABLET, MOBILE } from '../constants'
-let isMobile
-let currentScrollHeight = window.scrollY
-let previousScrollHeight
+
+let prevOffset = window.pageYOffset
+let currentOffset
 
 class Nav extends Component {
     constructor() {
         super()
         this.state = {
-            view: "desktop"
+            view: "desktop",
+            isExpanded: false,
+            isScrolled: false,
+            isScrollingDownOnMobile: false
         }
     }
 
@@ -26,43 +29,9 @@ class Nav extends Component {
     }
 
     handleMenuTapped() {
-        this.animateMenuIcon()
-        this.toggleMenuOpenClosed()
-    }
-
-    animateMenuIcon() {
-        const bars = document.getElementsByClassName('bars')
-        const alreadyExpanded = bars[1].style.opacity === '0'
-        
-        if(alreadyExpanded) {
-            bars[1].style.opacity = '1'
-            bars[0].style.transform = 'rotate(0deg)'
-            bars[2].style.transform = 'rotate(0deg)'
-            bars[0].style.top = '0'
-            bars[2].style.top = '0'
-        } else {
-            bars[0].style.transform = 'rotate(-45deg)'
-            bars[2].style.transform = 'rotate(45deg)'
-            bars[1].style.opacity = '0'
-            bars[0].style.top = '6px'
-            bars[2].style.top = '-6px'
-        }
-    }
-
-    toggleMenuOpenClosed() {
-        const dropDownMenuElement = document.getElementsByClassName('drop-down-menu')[0]
-        const phoneNumberElement = document.getElementsByClassName('phone-number')[0]
-        const alreadyExpanded = dropDownMenuElement.style.opacity === '1'
-        
-        if(alreadyExpanded) {
-            dropDownMenuElement.style.opacity = '0'
-            dropDownMenuElement.style.height = '0'
-            phoneNumberElement.style.color = ORANGE
-        } else {
-            dropDownMenuElement.style.opacity = '1'
-            dropDownMenuElement.style.height = '100vh'
-            phoneNumberElement.style.color = 'white'
-        }
+        this.setState({
+            isExpanded: !this.state.isExpanded 
+        })
     }
 
     checkIfRerenderNecessary() {
@@ -74,105 +43,55 @@ class Nav extends Component {
             }
         } else {
             if(window.innerWidth >= 776) {
-                // console.log('switch to dekstop here')
                 this.setState({
                     view: 'desktop'
-                }, () => {
-                    const dropDownMenuElement = document.getElementsByClassName('drop-down-menu')[0]
-                    dropDownMenuElement.style.opacity = '1'
-                    dropDownMenuElement.style.height = '100vh'
                 })
-            }
-        }
-    }
-        
-    toggleNavColors() {
-        const navView = document.getElementsByClassName('nav-view')[0]
-        const navLinks = document.getElementsByClassName('nav-links')
-        const navHomeLink = document.getElementsByClassName('nav-home-link')[0]
-        const navContactButton = document.getElementsByClassName('nav-contact-button')[0]
-
-        // coming into this function state must be correct
-        console.log(this.state.view)
-
-        if(this.state.view === "mobile") {
-            for(let i = 0; i < navLinks.length; i++) {
-                navLinks[i].style.color = 'white'
-            }
-            if(window.scrollY > 0) {
-                navView.style.boxShadow = '0 0 3px rgba(0,0,0,0.6)'
-                navView.style.background = '#3a3a3a'
-            } else {
-                navView.style.boxShadow = 'none'
-                navView.style.background = 'transparent'
-            }
-        } else {
-            if(window.scrollY > 0) {
-                navView.style.background = 'white'
-                navContactButton.style.borderColor = ORANGE
-                navContactButton.style.color = 'rgb(58, 58, 58)'
-                navHomeLink.style.borderColor = '#3a3a3a'
-                for(let i = 0; i < navLinks.length; i++) {
-                    navLinks[i].style.color = '#3a3a3a'
-                }
-            } else {
-                navView.style.background = 'transparent'
-                navContactButton.style.borderColor = 'white'
-                navContactButton.style.color = 'white'
-                navHomeLink.style.borderColor = 'white'
-                for(let i = 0; i < navLinks.length; i++) {
-                    navLinks[i].style.color = 'white'
-                }
             }
         }
     }
 
     handleScroll() {
-        this.toggleNavColors()
-        this.updateScrollHeights(currentScrollHeight)
+        // to avoid it from setting state on every scroll and instead only when it needs to
+        const isScrolledAndNotAlreadySet = window.scrollY > 0 && this.state.isScrolled === false
+        const isntScrolledButIsSet = window.scrollY === 0 && this.state.isScrolled === true
+        
+        if(isScrolledAndNotAlreadySet) {
+            this.setState({ isScrolled: true }, () => this.checkIfNavNeedsToBeHiddenOrRevealed())
+            return
+        } else if (isntScrolledButIsSet) {
+            this.setState({ isScrolled: false }, () => this.checkIfNavNeedsToBeHiddenOrRevealed())
+            return
+        }
         this.checkIfNavNeedsToBeHiddenOrRevealed()
-    }
-    
-    updateScrollHeights(previous) {
-        previousScrollHeight = previous
-        currentScrollHeight = window.scrollY
     }
 
     checkIfNavNeedsToBeHiddenOrRevealed() {
-        if(this.state.view === 'desktop') {
-            return
-        }
-        // console.log(`current: ${ currentScrollHeight } previous: ${ previousScrollHeight }`)
-        if(previousScrollHeight < currentScrollHeight) {
-            // this.hideMobileNav() 
-        } else {
-            // this.revealNav()
-        }
-    }
+        currentOffset = window.pageYOffset
 
-    hideMobileNav() {
-        if(previousScrollHeight <= 0) {
-            return
+        const shouldBeHiddenAndIsntAlready = prevOffset < currentOffset && !this.state.isScrollingDownOnMobile && currentOffset > 0
+        const shouldBeRevealedAndIsntAlready = prevOffset > currentOffset && this.state.isScrollingDownOnMobile
+
+        if(shouldBeHiddenAndIsntAlready) {
+            console.log('hidden', prevOffset, currentOffset)
+            this.setState({ isScrollingDownOnMobile: true })
+        } else if (shouldBeRevealedAndIsntAlready) {
+            console.log('revealed', prevOffset, currentOffset)
+            this.setState({ isScrollingDownOnMobile: false })
         }
-        
-        const nav = document.getElementsByClassName('nav-view')[0]
 
-        nav.style.transform = 'translateY(-2000px)'
-    }
-    revealNav() {
-        const nav = document.getElementsByClassName('nav-view')[0]
-
-        nav.style.transform = 'translateY(0px)'
+        prevOffset = currentOffset
     }
 
     render() {
+        const { isExpanded, isScrolled, isScrollingDownOnMobile } = this.state
+
         window.addEventListener('scroll', () => this.handleScroll(this.state.view))
         window.addEventListener('resize', () => {
             this.checkIfRerenderNecessary()
         })
  
         return (
-            <View className="nav-view">
+            <View className="nav-view" isScrolled={ isScrolled } isScrollingDownOnMobile={ isScrollingDownOnMobile }>
                 <Container>
                     <LogoContainer>
                         <Logo>
@@ -180,25 +99,25 @@ class Nav extends Component {
                         </Logo>
                     </LogoContainer>
 
-                    <Links className="drop-down-menu">
-                        <Link className="nav-home-link"><a className='nav-links' href="#">Home</a></Link>
-                        <Link><a className='nav-links' href="#">About us</a></Link>
-                        <Link><a className='nav-links' href="#">Services</a></Link>
-                        <Link><a className='nav-links' href="#">Our Work</a></Link>
-                        <Link><a className='nav-links' href="#">Careers</a></Link>
-                        <Link><a className='nav-links' href="#">Blog</a></Link>
+                    <Links isExpanded={ isExpanded } className="drop-down-menu">
+                        <Link isScrolled={ isScrolled } className="nav-home-link"><a className='nav-links' href="#">Home</a></Link>
+                        <Link isScrolled={ isScrolled }><a className='nav-links' href="#">About us</a></Link>
+                        <Link isScrolled={ isScrolled }><a className='nav-links' href="#">Services</a></Link>
+                        <Link isScrolled={ isScrolled }><a className='nav-links' href="#">Our Work</a></Link>
+                        <Link isScrolled={ isScrolled }><a className='nav-links' href="#">Careers</a></Link>
+                        <Link isScrolled={ isScrolled }><a className='nav-links' href="#">Blog</a></Link>
                         <ContactLinkMobile><a className='nav-links' href="#">Contact</a></ContactLinkMobile>
                     </Links>
 
                     <ContactInfo>
-                        <PhoneNumber className="phone-number">+1 (512) 949-8991</PhoneNumber>
-                        <ContactButton className='nav-contact-button'>Contact</ContactButton>
+                        <PhoneNumber isExpanded={ isExpanded } className="phone-number">+1 (512) 949-8991</PhoneNumber>
+                        <ContactButton isScrolled={ isScrolled }className='nav-contact-button'>Contact</ContactButton>
                     </ContactInfo>
 
                     <MenuExpander onClick={() => this.handleMenuTapped()}>
-                        <Bar1 className="bars"/>
-                        <Bar2 className="bars"/>
-                        <Bar3 className="bars"/>
+                        <Bar1 isExpanded={ isExpanded } className="bars"/>
+                        <Bar2 isExpanded={ isExpanded } className="bars"/>
+                        <Bar3 isExpanded={ isExpanded } className="bars"/>
                     </MenuExpander>
                 </Container>
             </View>
@@ -233,13 +152,15 @@ const MenuExpander = styled.div`
 `
 
 const Bar1 = styled.div`
-    transform: rotate(0deg);
+    transform: ${({ isExpanded }) => isExpanded ? 'rotate(45deg)' : 'rotate(0deg)' };
+    top: ${({ isExpanded }) => isExpanded ? '6px !important' : '' };
 `
 const Bar2 = styled.div`
-    opacity: 1;
+    opacity: ${({ isExpanded }) => isExpanded ? '0' : '1' };
 `
 const Bar3 = styled.div`
-    transform: rotate(0deg);
+    transform: ${({ isExpanded }) => isExpanded ? 'rotate(-45deg)' : 'rotate(0deg)' };
+    top: ${({ isExpanded }) => isExpanded ? '-6px !important' : '' };
 `
 
 const View = styled.div`
@@ -254,9 +175,13 @@ const View = styled.div`
     align-items: center;
     padding: 10px;
     box-sizing: border-box;
+    background: ${({ isScrolled }) => isScrolled ? 'white' : 'transparent' };
     transition: all 0.3s ease-in-out;
 
     @media(max-width: ${ MOBILE }) {
+        transform: ${({ isScrollingDownOnMobile }) => isScrollingDownOnMobile ? 'translateY(-2000px)' : 'translateY(0px)' };
+        background: ${({ isScrolled }) => isScrolled ? '#3a3a3a' : 'transparent' };
+        box-shadow: ${({ isScrolled }) => isScrolled ? '0 0 3px rgba(0, 0, 0, 0.6)' : 'none' };
         padding: 20px;
     }
 `
@@ -303,21 +228,25 @@ const Links = styled.ul`
     text-align: center;
     list-style: none;
     align-self: center;
-    color: black;
     position: relative;
     top: 4px;
     transition: 0.33333s;
+    height: ${({ isExpanded }) => isExpanded ? "auto" : "auto" };
+    opacity: ${({ isExpanded }) => isExpanded ? "1" : "1" };
+
     @media(max-width: ${ TABLET }) {
         flex-grow: 1;
     }
     @media(max-width: ${ MOBILE }) {
         position: absolute;
         overflow: hidden;
-        height: 0;
         width: 100%;
         top: 0;
         left: 0;
+        height: 0;
         opacity: 0;
+        height: ${({ isExpanded }) => isExpanded ? "100vh" : "0" };
+        opacity: ${({ isExpanded }) => isExpanded ? "1" : "0" };
         flex-direction: column;
         background: rgba(255,141,64,.9);
     }
@@ -334,10 +263,10 @@ const Link = styled.li`
         font-size: 14px;
         font-weight: 300;
         text-decoration: none;
-        color: white;
+        color: ${({ isScrolled }) => isScrolled ? '#3a3a3a' : 'white' };
     }
     &:first-child {
-        border-color: white;
+        border-color: ${({ isScrolled }) => isScrolled ? '#3a3a3a' : 'white' };
     }
     &:hover {
         cursor: pointer;
@@ -353,6 +282,9 @@ const Link = styled.li`
         position: relative;
         top: 85px;
         padding-bottom: 11px;
+        a {
+            color: white;
+        }
         &:hover {
             border: none;
         }
@@ -399,6 +331,7 @@ const PhoneNumber = styled.a`
         text-decoration: underline;
     }
     @media(max-width: ${ MOBILE }) {
+        color: ${({ isExpanded }) => isExpanded ? "white": ORANGE };
         font-size: 14px;
         margin-right: 15px;
         bottom: 6px;
@@ -415,6 +348,8 @@ const ContactButton = styled.button`
     font-size: 14px;
     font-weight: 300;
     transition: border-bottom-color 0.2s ease;
+    color: ${({ isScrolled }) => isScrolled ? '#3a3a3a' : 'white' };
+    border-color: ${({ isScrolled }) => isScrolled ? ORANGE : 'white' };
     &:hover {
         border-color: ${ ORANGE } !important;
         color: white !important;

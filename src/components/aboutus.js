@@ -44,7 +44,7 @@ class AboutUs extends Component {
     rotateIcon(index) {
         let expanderElements = document.getElementsByClassName('expanders')
         const alreadyExpanded = expanderElements[index].style.transform === 'rotate(0deg)'
-        
+
         if(alreadyExpanded) {
             expanderElements[index].style.transform = 'rotate(180deg)'
         } else {
@@ -52,7 +52,28 @@ class AboutUs extends Component {
         }
     }
 
+    checkIfRerenderNecessary() {
+        if(this.state.view === 'desktop') {
+            if(window.innerWidth < 776) {
+                this.setState({
+                    view: 'mobile'
+                })
+            }
+        } else {
+            if(window.innerWidth >= 776) {
+                this.setState({
+                    view: 'desktop'
+                })
+            }
+        }
+    }
+
     render() {
+        let windowWidth = window.innerWidth
+        window.addEventListener('resize', () => {
+            this.checkIfRerenderNecessary()
+        })
+        
         if(this.state.view === "desktop") {
             return (
                 <DesktopView>
