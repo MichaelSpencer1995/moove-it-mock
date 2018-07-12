@@ -2,18 +2,42 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { ORANGE } from '../constants'
 
-const ContactUs = () => {
-    return (
-        <View>
-            <ContactUsButton>
-                <Arrow>
-                    <img src="/assets/arrow-right.svg" />
-                </Arrow>
+class ContactUs extends Component {
 
-                <span>Contact Us and Get Started</span>
-            </ContactUsButton>
-        </View>
-    )
+    animateButton() {
+        console.log('animation')
+
+        const contactButton = document.getElementById('contact-button')
+        const spanTag = document.getElementsByClassName('span-tag')[0]
+        const arrow = document.getElementsByClassName('arrow')[0]
+
+        spanTag.style.display = 'none'
+        spanTag.style.opacity = '0'
+        arrow.style.transform = 'translateX(140px)'
+        contactButton.style.background = '#ff9c5a'
+
+        setTimeout(() => {
+            spanTag.style.display = 'block'
+            setTimeout(() => {
+                spanTag.style.opacity = '1'
+                arrow.style.transform = 'translateX(0px)'
+            }, 250);
+        }, 50);
+    }
+
+    render() {
+        return (
+            <View>
+                <ContactUsButton>
+                    <Arrow>
+                        <img src="/assets/arrow-right.svg" />
+                    </Arrow>
+    
+                    <span>Contact Us and Get Started</span>
+                </ContactUsButton>
+            </View>
+        )
+    }
 }
 
 const View = styled.div`
@@ -46,12 +70,9 @@ const ContactUsButton = styled.button`
     font-weight: 300;
     border-radius: 999px;
     border: none;
-    transition: 0.33333s;
+    transition: all 0.3s ease-in-out;
     &:hover {
-        justify-content: center;
-        span {
-            display: none;
-        }
+        background #ff9c5a;
     }
 `
 

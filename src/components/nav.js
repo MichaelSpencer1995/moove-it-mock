@@ -54,9 +54,14 @@ class Nav extends Component {
 
     render() {
         window.addEventListener('scroll', handleScroll)
-        
+
+        let currentScrollHeight = window.scrollY
+        let previousScrollHeight
+
         function handleScroll() {
             toggleNavColors()
+            updateScrollHeights(currentScrollHeight)
+            checkIfNavNeedsToBeHiddenOrRevealed()
         }
         
         function toggleNavColors() {
@@ -98,6 +103,39 @@ class Nav extends Component {
                     navLinks[i].style.color = 'white'
                 }
             }
+        }
+
+        function updateScrollHeights(previous) {
+            previousScrollHeight = previous
+            currentScrollHeight = window.scrollY
+        }
+
+        function checkIfNavNeedsToBeHiddenOrRevealed() {
+            if(window.innerWidth >= 776) {
+                return
+            }
+
+            if(previousScrollHeight < currentScrollHeight) {
+                hideMobileNav() 
+            } else {
+                revealMobileNav()
+            }
+        }
+
+        function hideMobileNav() {
+            if(previousScrollHeight <= 0) {
+                return
+            }
+            
+            const nav = document.getElementsByClassName('nav-view')[0]
+
+            nav.style.transform = 'translateY(-2000px)'
+        }
+        
+        function revealMobileNav() {
+            const nav = document.getElementsByClassName('nav-view')[0]
+
+            nav.style.transform = 'translateY(0px)'
         }
 
         return (
@@ -183,7 +221,8 @@ const View = styled.div`
     align-items: center;
     padding: 10px;
     box-sizing: border-box;
-    transition: 0.33333s background-color;
+    transition: all 0.3s ease-in-out;
+
     @media(max-width: ${ MOBILE }) {
         padding: 20px;
     }

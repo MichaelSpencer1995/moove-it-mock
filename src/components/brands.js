@@ -148,6 +148,10 @@ const LetsWorkTogether = styled.button`
     justify-content: space-between;
     align-items: center;
     margin-top: 36px;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        background #ff9c5a;
+    }
 `
 
 const RightArrow = styled.img`
