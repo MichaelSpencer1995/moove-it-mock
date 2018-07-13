@@ -68,14 +68,12 @@ class Nav extends Component {
     checkIfNavNeedsToBeHiddenOrRevealed() {
         currentOffset = window.pageYOffset
 
-        const shouldBeHiddenAndIsntAlready = prevOffset < currentOffset && !this.state.isScrollingDownOnMobile && currentOffset > 0
+        const shouldBeHiddenAndIsntAlready = prevOffset < currentOffset && !this.state.isScrollingDownOnMobile && currentOffset > 250
         const shouldBeRevealedAndIsntAlready = prevOffset > currentOffset && this.state.isScrollingDownOnMobile
 
         if(shouldBeHiddenAndIsntAlready) {
-            console.log('hidden', prevOffset, currentOffset)
             this.setState({ isScrollingDownOnMobile: true })
         } else if (shouldBeRevealedAndIsntAlready) {
-            console.log('revealed', prevOffset, currentOffset)
             this.setState({ isScrollingDownOnMobile: false })
         }
 
