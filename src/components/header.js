@@ -38,8 +38,7 @@ const Container = styled.div`
         text-align: center;
         color: #fff;
         font-size: 56px;
-        line-height: 1.23;
-        line-height: 1.17541;
+        line-height: 66px
         font-weight: 300;
         padding: 0 21px;
     }
@@ -48,6 +47,7 @@ const Container = styled.div`
         width: 100%;
         padding: 0;
         h1 {
+            line-height: 54px;
             font-size: 45px;
             padding: 0;
             position: relative;
@@ -58,12 +58,14 @@ const Container = styled.div`
         width: 86%;
         h1 {
             font-size: 36px;
+            line-height: 45px;
         }
     }
     @media(max-width: 550px) {
         width: 90%;
         h1 {
             font-size: 22px;
+            line-height: 27px;
         }
     }
 `
