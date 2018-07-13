@@ -89,7 +89,12 @@ class Nav extends Component {
         })
  
         return (
-            <View className="nav-view" isExpanded={ isExpanded } isScrolled={ isScrolled } isScrollingDownOnMobile={ isScrollingDownOnMobile }>
+            <View
+                className="nav-view"
+                ammountToShiftNavOffPageOnMobile={ isExpanded ? '-100vh' : '-85px' }
+                isExpanded={ isExpanded }
+                isScrolled={ isScrolled }
+                isScrollingDownOnMobile={ isScrollingDownOnMobile }>
                 <Container>
                     <LogoContainer>
                         <Logo>
@@ -174,10 +179,10 @@ const View = styled.div`
     padding: 10px;
     box-sizing: border-box;
     background: ${({ isScrolled }) => isScrolled ? 'white' : 'transparent' };
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
 
     @media(max-width: ${ MOBILE }) {
-        transform: ${({ isScrollingDownOnMobile }) => isScrollingDownOnMobile ? 'translateY(-2000px)' : 'translateY(0px)' };
+        transform: ${({ isScrollingDownOnMobile, ammountToShiftNavOffPageOnMobile }) => isScrollingDownOnMobile ? `translateY(${ ammountToShiftNavOffPageOnMobile })` : 'translateY(0px)' };
         background: ${({ isScrolled, isExpanded }) => !isScrolled || isExpanded ?  'transparent' : '#3a3a3a' };
         box-shadow: ${({ isScrolled, isExpanded }) => !isScrolled || isExpanded ? 'none' : '0 0 3px rgba(0, 0, 0, 0.6)'};
         height: 83px;
