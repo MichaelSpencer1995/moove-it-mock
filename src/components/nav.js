@@ -91,7 +91,7 @@ class Nav extends Component {
         })
  
         return (
-            <View className="nav-view" isScrolled={ isScrolled } isScrollingDownOnMobile={ isScrollingDownOnMobile }>
+            <View className="nav-view" isExpanded={ isExpanded } isScrolled={ isScrolled } isScrollingDownOnMobile={ isScrollingDownOnMobile }>
                 <Container>
                     <LogoContainer>
                         <Logo>
@@ -180,8 +180,8 @@ const View = styled.div`
 
     @media(max-width: ${ MOBILE }) {
         transform: ${({ isScrollingDownOnMobile }) => isScrollingDownOnMobile ? 'translateY(-2000px)' : 'translateY(0px)' };
-        background: ${({ isScrolled }) => isScrolled ? '#3a3a3a' : 'transparent' };
-        box-shadow: ${({ isScrolled }) => isScrolled ? '0 0 3px rgba(0, 0, 0, 0.6)' : 'none' };
+        background: ${({ isScrolled, isExpanded }) => !isScrolled || isExpanded ?  'transparent' : '#3a3a3a' };
+        box-shadow: ${({ isScrolled, isExpanded }) => !isScrolled || isExpanded ? 'none' : '0 0 3px rgba(0, 0, 0, 0.6)'};
         height: 83px;
         padding: 20px;
         justify-content: flex-start;
