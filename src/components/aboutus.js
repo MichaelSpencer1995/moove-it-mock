@@ -224,6 +224,7 @@ const MobileView = styled.div`
     background: #3a3a3a;
 `
 const AboutUsMobileContainer = styled.div`
+    margin-top: -40px;
     background: #3a3a3a;
     width: 100%;
     display: flex;
