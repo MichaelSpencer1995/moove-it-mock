@@ -280,8 +280,8 @@ const Link = styled.li`
     @media(max-width: ${ MOBILE }) {
         border: none;
         position: relative;
-        top: 85px;
-        padding-bottom: 11px;
+        top: 84px;
+        padding-bottom: 12px;
         a {
             color: white;
         }
@@ -294,7 +294,7 @@ const ContactLinkMobile = styled(Link)`
     display: none;
     border: white 1px solid;
     border-radius: 999px;
-    padding: 7px 0;
+    padding: 7px 0 8px 0;
     margin: 0;
     @media(max-width: ${ MOBILE }) {
         display: block;
