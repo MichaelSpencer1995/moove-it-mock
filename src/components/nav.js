@@ -83,7 +83,7 @@ class Nav extends Component {
     }
 
     render() {
-        const { isExpanded, isScrolled, isScrollingDownOnMobile } = this.state
+        const { isExpanded, isScrolled, isScrollingDownOnMobile, view } = this.state
 
         window.addEventListener('scroll', () => this.handleScroll(this.state.view))
         window.addEventListener('resize', () => {
@@ -182,7 +182,9 @@ const View = styled.div`
         transform: ${({ isScrollingDownOnMobile }) => isScrollingDownOnMobile ? 'translateY(-2000px)' : 'translateY(0px)' };
         background: ${({ isScrolled }) => isScrolled ? '#3a3a3a' : 'transparent' };
         box-shadow: ${({ isScrolled }) => isScrolled ? '0 0 3px rgba(0, 0, 0, 0.6)' : 'none' };
+        height: 83px;
         padding: 20px;
+        justify-content: flex-start;
     }
 `
 const Container = styled.div`
