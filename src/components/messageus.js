@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { ORANGE } from '../constants'
+import { ORANGE, MOBILE } from '../constants'
 
 const MessageUs = () => {
     return (
@@ -25,6 +25,9 @@ const View = styled.a`
     margin-right: 20px;
     margin-bottom: 20px;
     z-index: 1;
+    @media(max-width: ${ MOBILE }) {
+        box-shadow: 0px 0px 30px #00000026;
+    }
     svg {
         width: 28px;
         height: 32px;

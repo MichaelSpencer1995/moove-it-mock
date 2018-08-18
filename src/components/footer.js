@@ -51,7 +51,7 @@ const Footer = () => {
                                 <p>	
                                     Austin<br />
                                     701 Brazos St Austin, TX, USA 78701<br />
-                                    +1 (512) 949-8991
+                                    <span>+1 (512) 949-8991</span>
                                 </p>
                             </FirstRow>
 
@@ -64,19 +64,19 @@ const Footer = () => {
                                     San Francisco<br />
                                     2 Embarcadero Center 8th Floor<br />
                                     San Francisco, CA, USA 94111<br />
-                                    +1 (415) 449-8778
+                                    <span>+1 (415) 449-8778</span>
                                 </p>
                             </SecondRow>
 
                             <ThirdRow>
-                                <LocationIcon>
+                                <LocationIcon3>
                                     <img src="/assets/places/montevideo.svg" />
-                                </LocationIcon>
+                                </LocationIcon3>
 
                                 <p>	
                                     Montevideo<br />
                                     Bulevar Artigas 1112 Montevideo 11300, Uruguay<br />
-                                    +598 2706-60-71
+                                    <span>+598 2706-60-71</span>
                                 </p>
                             </ThirdRow>
                         </ThreeRow>
@@ -276,26 +276,41 @@ const ThreeRow = styled.div`
             line-height: 20px;
         }
     }
+    @media(max-width: ${ MOBILE }) {
+        span {
+            color: ${ ORANGE };
+        }
+    }
 `
-const FirstRow = styled.div``
+const FirstRow = styled.div`
+    background: green;
+`
 const SecondRow = styled.div`
     margin-bottom: 20px !important;
 `
 const ThirdRow = styled.div`
+    position: relative;
+    @media(max-width: ${ MOBILE }) {
+        // left: 10px;
+    }    
     @media(max-width: 400px) {
         position: relative;
         left: 10px;
     }
 `
 const LocationIcon = styled.div`
-    width: 50px;
-    padding-right: 20px;
+    width: 50px !important;
+    margin-right: 20px;
+    background: red;
     img {
         width: 100%;
     }
 `
 const LocationIcon2 = styled(LocationIcon)`
     padding-top: 10px;
+`
+const LocationIcon3 = styled(LocationIcon)`
+    background: blue;
 `
 
 const SocialMediaIcons = styled.div`
@@ -308,6 +323,11 @@ const SocialMediaIcons = styled.div`
         margin-right: 2px;
         &:hover {
             background: white;
+        }
+    }
+    @media(max-width: ${ MOBILE }) {
+        a > svg {
+            padding: 8px;
         }
     }
 `

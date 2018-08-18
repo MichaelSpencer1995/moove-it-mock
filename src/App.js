@@ -10,7 +10,7 @@ import MessageUs from './components/messageus'
 import Testimonials from './components/testimonials'
 import WhatWeDo from './components/whatwedo'
 import './App.css'
-import TechnologiesWeMaster from './components/technologieswemaster';
+import TechnologiesWeMaster from './components/technologieswemaster'
 
 const App = () => {
   return (

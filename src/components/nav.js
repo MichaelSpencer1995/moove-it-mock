@@ -22,39 +22,30 @@ class Nav extends Component {
 
     setView() {
         if(window.innerWidth < 776) {
-            this.setState({
-                view: "mobile"
-            })
+            this.setState({ view: "mobile" })
         }
     }
 
     handleMenuTapped() {
-        this.setState({
-            isExpanded: !this.state.isExpanded 
-        })
+        this.setState({ isExpanded: !this.state.isExpanded })
     }
 
     checkIfRerenderNecessary() {
         if(this.state.view === 'desktop') {
             if(window.innerWidth < 776) {
-                this.setState({
-                    view: 'mobile'
-                })
+                this.setState({ view: 'mobile' })
             }
         } else {
             if(window.innerWidth >= 776) {
-                this.setState({
-                    view: 'desktop'
-                })
+                this.setState({ view: 'desktop' })
             }
         }
     }
 
     handleScroll() {
         // to avoid it from setting state on every scroll and instead only when it needs to
-        const isScrolledAndNotAlreadySet = window.scrollY > 0 && this.state.isScrolled === false
-        const isntScrolledButIsSet = window.scrollY === 0 && this.state.isScrolled === true
-        
+        const isScrolledAndNotAlreadySet = window.pageYOffset > 0 && this.state.isScrolled === false
+        const isntScrolledButIsSet = window.pageYOffset === 0 && this.state.isScrolled === true
         if(isScrolledAndNotAlreadySet) {
             this.setState({ isScrolled: true }, () => this.checkIfNavNeedsToBeHiddenOrRevealed())
             return
