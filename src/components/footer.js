@@ -282,9 +282,7 @@ const ThreeRow = styled.div`
         }
     }
 `
-const FirstRow = styled.div`
-    background: green;
-`
+const FirstRow = styled.div``
 const SecondRow = styled.div`
     margin-bottom: 20px !important;
 `
@@ -301,7 +299,6 @@ const ThirdRow = styled.div`
 const LocationIcon = styled.div`
     width: 50px !important;
     margin-right: 20px;
-    background: red;
     img {
         width: 100%;
     }
@@ -309,9 +306,7 @@ const LocationIcon = styled.div`
 const LocationIcon2 = styled(LocationIcon)`
     padding-top: 10px;
 `
-const LocationIcon3 = styled(LocationIcon)`
-    background: blue;
-`
+const LocationIcon3 = styled(LocationIcon)``
 
 const SocialMediaIcons = styled.div`
     display: flex;
